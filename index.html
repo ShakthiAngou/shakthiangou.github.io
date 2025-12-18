@@ -4,16 +4,99 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Shakthi Angou</title>
+  <meta name="description" content="Portfolio of Shakthi Angou — software engineer exploring robotics, controls, and embedded systems." />
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; max-width: 900px; margin: 56px auto; padding: 0 18px; line-height: 1.55; }
+    header { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; flex-wrap: wrap; }
+    nav a { margin-right: 14px; text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    .card { border: 1px solid #e5e7eb; border-radius: 14px; padding: 16px 16px; margin: 12px 0; }
+    .muted { color: #4b5563; }
+    h1 { margin: 0; font-size: 2rem; }
+    h2 { margin-top: 28px; }
+    ul { padding-left: 18px; }
+    .pill { display: inline-block; border: 1px solid #e5e7eb; border-radius: 999px; padding: 4px 10px; margin: 6px 6px 0 0; font-size: 0.9rem; }
+    footer { margin-top: 48px; padding-top: 18px; border-top: 1px solid #e5e7eb; }
+  </style>
 </head>
-<body style="font-family: system-ui; max-width: 800px; margin: 48px auto; padding: 0 16px;">
-  <h1>Shakthi Angou</h1>
-  <p>Software Engineer • Robotics & Controls Aspirant</p>
+<body>
+  <header>
+    <div>
+      <h1>Shakthi Angou</h1>
+      <div class="muted">Software Engineer • Interested in Robotics, Controls, Embedded Systems</div>
+    </div>
+    <nav>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-  <p>This site is under construction 🚧</p>
+  <section class="card" style="margin-top:18px;">
+    <p>
+      I’m a software engineer in storage systems (C++/distributed systems) exploring a pivot into robotics:
+      motion planning, estimation, and real-world robot software.
+    </p>
+    <div>
+      <a href="https://github.com/ShakthiAngou">GitHub</a> ·
+      <a href="https://www.linkedin.com/in/shakthi-angou/">LinkedIn</a>
+      <!-- Later: add Resume PDF link like: · <a href="resume.pdf">Resume</a> -->
+    </div>
+    <div style="margin-top:10px;">
+      <span class="pill">C++</span>
+      <span class="pill">Python</span>
+      <span class="pill">Distributed Systems</span>
+      <span class="pill">Robotics (learning)</span>
+    </div>
+  </section>
 
-  <ul>
-    <li><a href="https://github.com/ShakthiAngou">GitHub</a></li>
-    <li><a href="https://www.linkedin.com/in/shakthi-angou/">LinkedIn</a></li>
-  </ul>
+  <h2 id="projects">Projects</h2>
+
+  <div class="card">
+    <strong>Project Title 1</strong>
+    <div class="muted">1–2 line impact statement. What you built + why it matters.</div>
+    <ul>
+      <li>Key detail (tech + constraint + result)</li>
+      <li>Key detail (scale/performance/latency/etc.)</li>
+    </ul>
+    <div>
+      <a href="#">Code</a> · <a href="#">Write-up</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <strong>Project Title 2</strong>
+    <div class="muted">1–2 line impact statement.</div>
+    <ul>
+      <li>Key detail</li>
+      <li>Key detail</li>
+    </ul>
+    <div>
+      <a href="#">Code</a> · <a href="#">Demo</a>
+    </div>
+  </div>
+
+  <h2 id="experience">Experience</h2>
+  <div class="card">
+    <strong>Hewlett Packard Enterprise — Software Engineer</strong>
+    <div class="muted">Object & File Storage • C++ • Distributed systems</div>
+    <ul>
+      <li>Add 2–3 bullets focused on impact (perf, reliability, scale, ownership).</li>
+    </ul>
+  </div>
+
+  <h2 id="contact">Contact</h2>
+  <div class="card">
+    <div>Email: <a href="mailto:shakthivangou@gmail.com">shakthivangou@gmail.com</a></div>
+    <div>GitHub: <a href="https://github.com/ShakthiAngou">github.com/ShakthiAngou</a></div>
+  </div>
+
+  <footer class="muted">
+    © <span id="y"></span> Shakthi Angou
+  </footer>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
