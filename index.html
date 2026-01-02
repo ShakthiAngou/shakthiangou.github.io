@@ -1,15 +1,25 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- =========================================================
+      META
+    ========================================================== -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Shakthi Angou</title>
     <meta
       name="description"
       content="Portfolio of Shakthi Angou — software engineer exploring robotics, controls, and embedded systems."
     />
 
+    <!-- =========================================================
+      STYLES
+    ========================================================== -->
     <style>
+      /* -------------------------
+        Theme variables
+      -------------------------- */
       :root {
         --bg-deep: #173f6c;
         --bg-mid: #0d8ac9;
@@ -20,12 +30,16 @@
         --accent: #4cc9f0;
       }
 
+      /* -------------------------
+        Base layout / typography
+      -------------------------- */
       body {
         font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
         margin: 0;
         padding: 110px 18px 64px;
         line-height: 1.55;
         color: var(--text-main);
+
         background: radial-gradient(1200px 600px at 50% -10%, #123e6b, transparent 60%),
           linear-gradient(180deg, var(--bg-mid), var(--bg-deep));
       }
@@ -37,6 +51,17 @@
         margin: 0 auto;
       }
 
+      /* -------------------------
+        Links / headings
+      -------------------------- */
+      a {
+        color: var(--accent);
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
       nav a {
         margin-right: 14px;
         text-decoration: none;
@@ -45,14 +70,6 @@
 
       nav a:hover {
         color: var(--accent);
-      }
-
-      a {
-        color: var(--accent);
-      }
-
-      a:hover {
-        text-decoration: underline;
       }
 
       h1 {
@@ -68,6 +85,9 @@
         color: var(--text-muted);
       }
 
+      /* -------------------------
+        Card + small UI elements
+      -------------------------- */
       .card {
         background: var(--card-bg);
         border: 1px solid var(--card-border);
@@ -94,7 +114,9 @@
         color: var(--text-muted);
       }
 
-      /* --- Topbar (floating) --- */
+      /* -------------------------
+        Topbar (floating)
+      -------------------------- */
       .topbar {
         position: fixed;
         top: 24px;
@@ -126,7 +148,9 @@
         text-decoration: none;
       }
 
-      /* --- Home / Hero --- */
+      /* -------------------------
+        Home / Hero
+      -------------------------- */
       #home {
         min-height: calc(100vh - 110px);
         display: flex;
@@ -161,7 +185,9 @@
         hyphens: auto;
       }
 
-      /* --- Education rows --- */
+      /* -------------------------
+        Education rows (in hero)
+      -------------------------- */
       .edu {
         margin-top: 14px;
         display: grid;
@@ -192,7 +218,9 @@
         margin-top: 2px;
       }
 
-      /* --- CTA Buttons --- */
+      /* -------------------------
+        CTA Buttons
+      -------------------------- */
       .cta {
         display: flex;
         gap: 10px;
@@ -219,7 +247,9 @@
         border-color: rgba(76, 201, 240, 0.35);
       }
 
-      /* --- Passions section (3 squares) --- */
+      /* -------------------------
+        Passions section (3 squares)
+      -------------------------- */
       .passions-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -250,6 +280,7 @@
         .passions-grid {
           grid-template-columns: 1fr;
         }
+
         .passion-card {
           aspect-ratio: auto;
         }
@@ -258,6 +289,9 @@
   </head>
 
   <body>
+    <!-- =========================================================
+      TOP NAV
+    ========================================================== -->
     <header class="topbar">
       <a class="brand" href="#home">Shakthi Angou</a>
 
@@ -266,17 +300,19 @@
         <a href="#passions">Passions</a>
         <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
-        <a href="#courses">Courses</a>
         <a href="#contact">Contact</a>
       </nav>
     </header>
 
-    <!-- HOME -->
+    <!-- =========================================================
+      HOME / HERO
+    ========================================================== -->
     <section id="home" class="section hero">
       <div class="card">
         <h1>Shakthi Angou</h1>
         <div class="subtitle">Software Engineer • Robotics, Controls, Embedded Systems</div>
 
+        <!-- Education / Current role -->
         <div class="edu">
           <div class="row">
             <a class="school" href="https://www.cmu.edu" target="_blank" rel="noopener">
@@ -293,6 +329,7 @@
           </div>
         </div>
 
+        <!-- Intro blurb -->
         <p style="margin-top: 20px; margin-bottom: 20px;">
           Currently a systems software engineer, I'm passionate about working at the intersection of software
           systems and real-world engineering, inspired by principles of the natural world. I envision my future
@@ -301,11 +338,13 @@
           to my community in an ethical and sustainable fashion.
         </p>
 
+        <!-- CTA -->
         <div class="cta">
           <a class="btn primary" href="#experience">View Experience</a>
           <a class="btn" href="#contact">Contact</a>
         </div>
 
+        <!-- Skill pills -->
         <div style="margin-top: 10px;">
           <span class="pill">C++</span>
           <span class="pill">Python</span>
@@ -316,7 +355,9 @@
       </div>
     </section>
 
-    <!-- PASSIONS -->
+    <!-- =========================================================
+      PASSIONS
+    ========================================================== -->
     <section class="section">
       <h2 id="passions">Passions</h2>
 
@@ -347,20 +388,25 @@
       </div>
     </section>
 
-    <!-- PROJECTS -->
+    <!-- =========================================================
+      PROJECTS
+    ========================================================== -->
     <section class="section">
       <h2 id="projects">Projects</h2>
 
+      <!-- Project 1 -->
       <div class="card">
         <strong>SightMate: Automated Navigation System</strong>
 
         <div class="muted">
-          Wearable assistive navigation system for visually-impaired users, combining real-time obstacle detection with spatial audio feedback for safe, hands-free mobility.
+          Wearable assistive navigation system for visually-impaired users, combining real-time obstacle
+          detection with spatial audio feedback for safe, hands-free mobility.
         </div>
 
         <ul>
           <li>
-            Built a multi-sensor perception stack (ultrasonic + IMU) on NVIDIA Jetson for low-latency obstacle detection and distance estimation
+            Built a multi-sensor perception stack (ultrasonic + IMU) on NVIDIA Jetson for low-latency obstacle
+            detection and distance estimation
           </li>
           <li>
             Designed audio-based guidance logic to convey direction and proximity without overwhelming the user
@@ -372,61 +418,169 @@
         </div>
       </div>
 
-
+      <!-- Project 2 -->
       <div class="card">
-        <strong>Project Title 2</strong>
-        <div class="muted">1–2 line impact statement.</div>
+        <strong>Fractal Tree Based Metadata Indexing for Object Storage</strong>
+
+        <div class="muted">
+          Designed and implemented an in-memory fractal tree–based metadata index to reduce lookup overhead
+          and improve partial read performance in a production S3-compatible object storage system.
+        </div>
+
         <ul>
-          <li>Key detail</li>
-          <li>Key detail</li>
+          <li>
+            Implemented a fractal tree data structure to aggregate and organize object metadata in memory,
+            reducing repeated traversal during read operations
+          </li>
+          <li>
+            Analyzed performance trade-offs against existing indexing approaches and proposed a hybrid strategy
+            for future production integration
+          </li>
+          <li>Project recognized for technical excellence and impact, resulting in a full-time return offer.</li>
         </ul>
-        <div><a href="#">Code</a> · <a href="#">Demo</a></div>
+
+        <div>
+          <a href="#">Code</a> · <a href="#">Demo</a>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="card">
+        <strong>Low-Level Systems Engineering: Memory, Caching, and Exploits</strong>
+
+        <div class="muted">
+          Built and analyzed low-level system components to understand performance, memory behavior, and
+          security vulnerabilities in modern computer architectures.
+        </div>
+
+        <ul>
+          <li>
+            Implemented a custom dynamic memory allocator (malloc, free, realloc) using segregated free lists
+            to improve memory utilization and throughput, and developed a configurable cache simulator to
+            analyze hit/miss behavior under different access patterns
+          </li>
+          <li>
+            Optimized cache performance through LRU-based strategies and cache-aware matrix transposition, and
+            demonstrated exploitation of buffer overflow vulnerabilities to study runtime failure modes and
+            system defenses
+          </li>
+        </ul>
+
+        <div>
+          <a href="#">Code</a> · <a href="#">Demo</a>
+        </div>
       </div>
     </section>
 
-    <!-- EXPERIENCE -->
+    <!-- =========================================================
+      EXPERIENCE
+    ========================================================== -->
     <section class="section">
       <h2 id="experience">Experience</h2>
 
+      <!-- HPE Full-Time -->
       <div class="card">
-        <strong>Hewlett Packard Enterprise — Software Engineer</strong>
-        <div class="muted">Object &amp; File Storage • C++ • Distributed systems</div>
+        <strong>Hewlett Packard Enterprise — Systems Software Engineer</strong>
+        <div class="muted">Object &amp; File Storage • C++ • Distributed Systems</div>
+
         <ul>
-          <li>Add 2–3 bullets focused on impact (perf, reliability, scale, ownership).</li>
+          <li>
+            Optimized metadata handling and object retention workflows in an S3-compatible storage system,
+            improving reliability and debuggability at scale
+          </li>
+          <li>
+            Improved concurrent tree-merge strategies to reduce race conditions and ensure correctness under
+            high-throughput workloads
+          </li>
+          <li>
+            Contributed to internal gRPC-based debugging tools and logging pipelines to accelerate issue
+            detection and lifecycle analysis
+          </li>
+        </ul>
+      </div>
+
+      <!-- HPE Internship -->
+      <div class="card">
+        <strong>Hewlett Packard Enterprise — Software Engineering Intern</strong>
+        <div class="muted">Object Storage • C++ • Performance Engineering</div>
+
+        <ul>
+          <li>
+            Designed and implemented a fractal tree–based in-memory metadata index to reduce lookup overhead
+            and accelerate partial object reads
+          </li>
+          <li>
+            Conducted performance analysis against existing indexing approaches and proposed a hybrid strategy
+            for production integration
+          </li>
+          <li>Project recognized for technical excellence and impact, resulting in a full-time return offer</li>
+        </ul>
+      </div>
+
+      <!-- Blackbuck -->
+      <div class="card">
+        <strong>Blackbuck Insights — Data Engineering Intern</strong>
+        <div class="muted">Data Modeling • UX • Analytics</div>
+
+        <ul>
+          <li>
+            Proposed tagging and taxonomy models to structure large-scale content data for improved
+            discoverability and recommendation quality
+          </li>
+          <li>
+            Analyzed user interaction data to inform dynamic content recommendations and improve platform
+            engagement
+          </li>
+        </ul>
+      </div>
+
+      <!-- CMU Campus Job -->
+      <div class="card">
+        <strong>Carnegie Mellon University — Administrative Office Assistant</strong>
+        <div class="muted">Information Networking Institute</div>
+
+        <ul>
+          <li>
+            Supported coordination of graduate-level courses and seminars, ensuring smooth scheduling and
+            academic operations
+          </li>
+          <li>
+            Served as a primary point of contact for students and faculty, handling inquiries with accuracy and
+            professionalism
+          </li>
         </ul>
       </div>
     </section>
 
-    <!-- COURSES -->
-    <section class="section">
-      <h2 id="courses">Courses</h2>
-
-      <div class="card">
-        <strong>Course Title 1</strong>
-        <div class="muted">Brief description of the course and its relevance.</div>
-      </div>
-
-      <div class="card">
-        <strong>Course Title 2</strong>
-        <div class="muted">Brief description of the course and its relevance.</div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
+    <!-- =========================================================
+      CONTACT
+    ========================================================== -->
     <section class="section">
       <h2 id="contact">Contact</h2>
 
       <div class="card">
-        <div>LinkedIn: <a href="https://www.linkedin.com/in/shakthi-angou/">Shakthi Angou</a></div>
-        <div>GitHub: <a href="https://github.com/ShakthiAngou">github.com/ShakthiAngou</a></div>
+        <div>
+          LinkedIn:
+          <a href="https://www.linkedin.com/in/shakthi-angou/" target="_blank" rel="noopener">Shakthi Angou</a>
+        </div>
+        <div>
+          GitHub:
+          <a href="https://github.com/ShakthiAngou" target="_blank" rel="noopener">github.com/ShakthiAngou</a>
+        </div>
       </div>
     </section>
 
+    <!-- =========================================================
+      FOOTER
+    ========================================================== -->
     <footer class="muted section">© <span id="y"></span> Shakthi Angou</footer>
 
+    <!-- =========================================================
+      SCRIPTS
+    ========================================================== -->
     <script>
+      // Auto-update footer year
       document.getElementById("y").textContent = new Date().getFullYear();
     </script>
   </body>
 </html>
-
