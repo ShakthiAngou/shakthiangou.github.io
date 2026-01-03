@@ -285,6 +285,34 @@
           aspect-ratio: auto;
         }
       }
+
+      /* =========================
+        Full-page background video
+      ========================= */
+      .bg-video {
+        position: fixed;
+        inset: 0;
+
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+
+        z-index: -5;
+
+        opacity: 0.2;
+        filter: blur(1px) brightness(0.6) saturate(1.25);
+
+        pointer-events: none;
+        transition: opacity 600ms ease;
+      }
+
+      /* Accessibility: reduce motion */
+      @media (prefers-reduced-motion: reduce) {
+        .bg-video {
+          display: none;
+        }
+      }
+
     </style>
   </head>
 
@@ -581,6 +609,43 @@
     <script>
       // Auto-update footer year
       document.getElementById("y").textContent = new Date().getFullYear();
+
+      window.addEventListener("DOMContentLoaded", () => {
+        const v = document.querySelector("video.bg-video");
+        if (!v) {
+          console.log("❌ bg video not found (after DOMContentLoaded)");
+          return;
+        }
+
+        const RATE = 0.5;
+
+        const applyRate = (tag) => {
+          v.defaultPlaybackRate = RATE;
+          v.playbackRate = RATE;
+          console.log("✅ applyRate:", tag, "rate=", v.playbackRate);
+        };
+
+        applyRate("immediate");
+        v.addEventListener("loadedmetadata", () => applyRate("loadedmetadata"));
+        v.addEventListener("playing", () => applyRate("playing"));
+        setTimeout(() => applyRate("timeout-250ms"), 250);
+
+        document.addEventListener("visibilitychange", () => {
+          document.hidden ? v.pause() : v.play().catch(() => {});
+        });
+      });
     </script>
+
   </body>
+
+  <video
+    class="bg-video"
+    autoplay
+    muted
+    loop
+    playsinline
+  >
+    <source src="background.mp4" type="video/mp4" />
+  </video>
+
 </html>
