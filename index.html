@@ -16,32 +16,50 @@
     <!-- =========================================================
       STYLES
     ========================================================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400&display=swap" rel="stylesheet" />
     <style>
+      @font-face {
+        font-family: "GT Standard L";
+        src: url("https://framerusercontent.com/assets/cD3PlB0qn71m4YssUzzkDBThmPA.woff2") format("woff2");
+        font-style: normal;
+        font-weight: 300;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "Formular Mono";
+        src: url("https://framerusercontent.com/assets/7ECgiP6io6VC8o5You8qUa6tJWQ.woff2") format("woff2");
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+      }
+
       /* -------------------------
         Theme variables
       -------------------------- */
       :root {
-        --bg-deep: #173f6c;
-        --bg-mid: #0d8ac9;
-        --card-bg: rgba(255, 255, 255, 0.08);
-        --card-border: rgba(255, 255, 255, 0.15);
-        --text-main: #e6f1ff;
-        --text-muted: #b8c7dd;
-        --accent: #4cc9f0;
+        --paper: #e4edf6;
+        --card-bg: #faf9f5;
+        --card-border: #b8b5ae;
+        --text-main: #303030;
+        --text-muted: #505050;
+        --accent: #303030;
       }
 
       /* -------------------------
         Base layout / typography
       -------------------------- */
       body {
-        font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+        font-family: "GT Standard L", "Helvetica Neue", Arial, sans-serif;
+        font-weight: 300;
         margin: 0;
         padding: 110px 18px 64px;
         line-height: 1.55;
         color: var(--text-main);
 
-        background: radial-gradient(1200px 600px at 50% -10%, #123e6b, transparent 60%),
-          linear-gradient(180deg, var(--bg-mid), var(--bg-deep));
+        background: var(--paper);
       }
 
       /* Shared container for ALL sections */
@@ -79,6 +97,10 @@
 
       h2 {
         margin-top: 36px;
+        font-family: "Formular Mono", "Courier New", monospace;
+        font-weight: 400;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
       }
 
       .muted {
@@ -95,6 +117,12 @@
         padding: 18px;
         margin: 14px 0;
         backdrop-filter: blur(6px);
+      }
+
+      .card strong,
+      .card .school {
+        color: #111111;
+        font-weight: 800;
       }
 
       .pill {
@@ -126,23 +154,24 @@
         display: inline-flex;
         justify-content: space-between;
         align-items: center;
-        gap: 16px;
+        gap: 56px;
 
         padding: 12px 18px;
 
         border-radius: 999px;
         border: 1px solid var(--card-border);
 
-        background: rgba(255, 255, 255, 0.06);
+        background: var(--paper);
         backdrop-filter: blur(10px);
 
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        box-shadow: 0 6px 20px rgba(48, 48, 48, 0.1);
 
         z-index: 100;
       }
 
       .brand {
-        font-weight: 700;
+        font-family: "Space Mono", "Courier New", monospace;
+        font-weight: 400;
         letter-spacing: 0.2px;
         color: var(--text-main);
         text-decoration: none;
@@ -154,16 +183,20 @@
       #home {
         min-height: calc(100vh - 110px);
         display: flex;
-        align-items: center;
+        flex-direction: column;
+        align-items: stretch;
         justify-content: center;
         padding: 24px 0;
       }
 
       .hero h1 {
-        margin: 0;
-        font-size: 3.4rem;
+        color: var(--text-main);
+        margin: 0 0 18px;
+        text-align: center;
+        font-size: clamp(2rem, 7vw, 4.5rem);
         line-height: 1.2;
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-family: "Space Mono", "Courier New", monospace;
+        font-weight: 400;
       }
 
       .hero .subtitle {
@@ -198,7 +231,7 @@
         padding: 12px 14px;
         border: 1px solid var(--card-border);
         border-radius: 14px;
-        background: rgba(255, 255, 255, 0.05);
+        background: var(--paper);
       }
 
       .school {
@@ -235,16 +268,11 @@
         border: 1px solid var(--card-border);
         text-decoration: none;
         color: var(--text-main);
-        background: rgba(255, 255, 255, 0.06);
+        background: var(--paper);
       }
 
       .btn:hover {
-        border-color: rgba(255, 255, 255, 0.3);
-      }
-
-      .btn.primary {
-        background: rgba(76, 201, 240, 0.18);
-        border-color: rgba(76, 201, 240, 0.35);
+        border-color: var(--text-main);
       }
 
       /* -------------------------
@@ -286,33 +314,6 @@
         }
       }
 
-      /* =========================
-        Full-page background video
-      ========================= */
-      .bg-video {
-        position: fixed;
-        inset: 0;
-
-        width: 100vw;
-        height: 100vh;
-        object-fit: cover;
-
-        z-index: -5;
-
-        opacity: 0.2;
-        filter: blur(1px) brightness(0.6) saturate(1.25);
-
-        pointer-events: none;
-        transition: opacity 600ms ease;
-      }
-
-      /* Accessibility: reduce motion */
-      @media (prefers-reduced-motion: reduce) {
-        .bg-video {
-          display: none;
-        }
-      }
-
     </style>
   </head>
 
@@ -321,13 +322,13 @@
       TOP NAV
     ========================================================== -->
     <header class="topbar">
-      <a class="brand" href="#home">Shakthi Angou</a>
+      <a class="brand" href="#home">shakthi angou</a>
 
       <nav>
-        <a href="#home">Home</a>
         <a href="#passions">Passions</a>
         <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
+        <a href="#certifications">Certifications</a>
         <a href="#contact">Contact</a>
       </nav>
     </header>
@@ -336,9 +337,9 @@
       HOME / HERO
     ========================================================== -->
     <section id="home" class="section hero">
+      <h1>shakthi angou</h1>
       <div class="card">
-        <h1>Shakthi Angou</h1>
-        <div class="subtitle">Software Engineer • Robotics, Controls, Embedded Systems</div>
+        <div class="subtitle">Software Systems Engineer • Aspiring Climate Technologist</div>
 
         <!-- Education / Current role -->
         <div class="edu">
@@ -359,16 +360,17 @@
 
         <!-- Intro blurb -->
         <p style="margin-top: 20px; margin-bottom: 20px;">
-          Currently a systems software engineer, I'm passionate about working at the intersection of software
-          systems and real-world engineering, inspired by principles of the natural world. I envision my future
-          in building autonomous robotic systems for the monitoring and restoration of aquatic ecosystems. My
-          aspirations as an engineer are driven by technological curiosity and a deep-rooted desire to give back
-          to my community in an ethical and sustainable fashion.
+          Currently a systems software engineer, I’m passionate about building at the intersection of software,
+          real-world engineering, and the natural world. I aspire to develop intelligent energy, robotics, and
+          autonomous systems that address environmental and climate challenges. Driven by technological curiosity
+          and a desire to build ethically and sustainably, I believe advances in robotics and AI give us an
+          unprecedented opportunity to tackle human-made climate challenges, and I want to help turn that
+          potential into action.
         </p>
 
         <!-- CTA -->
         <div class="cta">
-          <a class="btn primary" href="#experience">View Experience</a>
+          <a class="btn" href="#experience">View Experience</a>
           <a class="btn" href="#contact">Contact</a>
         </div>
 
@@ -391,10 +393,9 @@
 
       <div class="passions-grid">
         <div class="card passion-card">
-          <strong>Marine Restoration</strong>
+          <strong>Climate &amp; Energy Technology</strong>
           <div class="muted">
-            Drawn to ocean and freshwater restoration through robotics and sensing, inspired by the applied
-            marine research of MBARI and the Woods Hole Oceanographic Institution.
+            Applying software, intelligent systems, robotics, and sensing to build a more sustainable and resilient future.
           </div>
         </div>
 
@@ -442,7 +443,7 @@
         </ul>
 
         <div>
-          <a href="#">Presentation</a> · <a href="#">Report</a>
+          <a href="assets/documents/SightMate_Presentation.pdf" target="_blank" rel="noopener">Presentation</a> · <a href="assets/documents/SightMate_Report.pdf" target="_blank" rel="noopener">Report</a>
         </div>
       </div>
 
@@ -467,35 +468,36 @@
           <li>Project recognized for technical excellence and impact, resulting in a full-time return offer.</li>
         </ul>
 
-        <div>
-          <a href="#">Code</a> · <a href="#">Demo</a>
-        </div>
       </div>
 
       <!-- Project 3 -->
       <div class="card">
-        <strong>Low-Level Systems Engineering: Memory, Caching, and Exploits</strong>
-
+        <strong>Microgrid Energy Management System (EMS)</strong>
         <div class="muted">
-          Built and analyzed low-level system components to understand performance, memory behavior, and
-          security vulnerabilities in modern computer architectures.
+          Long-term goal: develop an intelligent energy management system for decentralised microgrids in
+          rural India, supporting reliable access to renewable energy.
         </div>
-
         <ul>
           <li>
-            Implemented a custom dynamic memory allocator (malloc, free, realloc) using segregated free lists
-            to improve memory utilization and throughput, and developed a configurable cache simulator to
-            analyze hit/miss behavior under different access patterns
+            Built a modular microgrid Energy Management System (EMS) simulation for solar generation, load
+            demand, supercapacitor storage, and hydrogen storage.
           </li>
           <li>
-            Optimized cache performance through LRU-based strategies and cache-aware matrix transposition, and
-            demonstrated exploitation of buffer overflow vulnerabilities to study runtime failure modes and
-            system defenses
+            Implemented rule-based dispatch logic that prioritizes short-duration storage before hydrogen
+            conversion and tracks system energy flows over 24-hour scenarios.
+          </li>
+          <li>
+            Developed a Matplotlib dashboard for storage state of charge, hydrogen inventory, generation,
+            demand, and post-storage energy balance, establishing a foundation for forecast-aware MPC.
+          </li>
+          <li>
+            Future versions will work toward hardware-in-the-loop testing and ML-based predictive state
+            estimation to support more adaptive energy management.
           </li>
         </ul>
 
         <div>
-          <a href="#">Code</a> · <a href="#">Demo</a>
+          <a href="https://github.com/ShakthiAngou/MicrogridController" target="_blank" rel="noopener">GitHub Repository</a>
         </div>
       </div>
     </section>
@@ -513,16 +515,22 @@
 
         <ul>
           <li>
-            Optimized metadata handling and object retention workflows in an S3-compatible storage system,
-            improving reliability and debuggability at scale
+            Developed Namespace Index and File Index features for HPE's distributed, S3-compatible object and
+            file storage platforms.
           </li>
           <li>
-            Improved concurrent tree-merge strategies to reduce race conditions and ensure correctness under
-            high-throughput workloads
+            Implemented end-to-end object locking and versioning, enforcing retention and access controls
+            through metadata and authorization workflows.
           </li>
           <li>
-            Contributed to internal gRPC-based debugging tools and logging pipelines to accelerate issue
-            detection and lifecycle analysis
+            Added Grafana-integrated metrics and in-memory counters to monitor file-storage health and performance.
+          </li>
+          <li>
+            Built state-inspection and diagnostic tools in a gRPC debugging framework to accelerate root-cause analysis.
+          </li>
+          <li>
+            Used Kubernetes-based storage simulations to reproduce failures, validate fixes, and test features
+            before deployment.
           </li>
         </ul>
       </div>
@@ -581,6 +589,26 @@
     </section>
 
     <!-- =========================================================
+      COURSES & CERTIFICATIONS
+    ========================================================== -->
+    <section class="section">
+      <h2 id="certifications">Courses &amp; Certifications</h2>
+
+      <div class="card">
+        <strong>Green Software Practitioner</strong>
+
+        <div class="muted">
+          Certified in sustainable software principles, with a focus on reducing the environmental impact of
+          software systems through energy and carbon efficiency.
+        </div>
+
+        <div style="margin-top: 16px;">
+          <a href="assets/documents/1_2026_Green_Software_Practitioner.pdf" target="_blank" rel="noopener">Certificate</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
       CONTACT
     ========================================================== -->
     <section class="section">
@@ -609,43 +637,7 @@
     <script>
       // Auto-update footer year
       document.getElementById("y").textContent = new Date().getFullYear();
-
-      window.addEventListener("DOMContentLoaded", () => {
-        const v = document.querySelector("video.bg-video");
-        if (!v) {
-          console.log("❌ bg video not found (after DOMContentLoaded)");
-          return;
-        }
-
-        const RATE = 0.5;
-
-        const applyRate = (tag) => {
-          v.defaultPlaybackRate = RATE;
-          v.playbackRate = RATE;
-          console.log("✅ applyRate:", tag, "rate=", v.playbackRate);
-        };
-
-        applyRate("immediate");
-        v.addEventListener("loadedmetadata", () => applyRate("loadedmetadata"));
-        v.addEventListener("playing", () => applyRate("playing"));
-        setTimeout(() => applyRate("timeout-250ms"), 250);
-
-        document.addEventListener("visibilitychange", () => {
-          document.hidden ? v.pause() : v.play().catch(() => {});
-        });
-      });
     </script>
 
   </body>
-
-  <video
-    class="bg-video"
-    autoplay
-    muted
-    loop
-    playsinline
-  >
-    <source src="background.mp4" type="video/mp4" />
-  </video>
-
 </html>
