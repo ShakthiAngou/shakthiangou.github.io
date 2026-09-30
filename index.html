@@ -98,11 +98,16 @@
 
       h2 {
         color: #75534f;
-        margin-top: 36px;
+        margin: 36px 0 14px;
         font-family: "Formular Mono", "Courier New", monospace;
         font-weight: 400;
         letter-spacing: 0.15em;
         text-transform: uppercase;
+      }
+
+      .section > h2 + .card,
+      .section > h2 + .interests-grid > .card {
+        margin-top: 0;
       }
 
       .muted {
@@ -137,6 +142,25 @@
         color: var(--text-muted);
       }
 
+      a.pill {
+        text-decoration: none;
+        max-width: 100%;
+        box-sizing: border-box;
+        overflow-wrap: anywhere;
+      }
+
+      a.pill:hover,
+      a.pill:focus-visible {
+        background: var(--paper);
+        color: var(--text-main);
+        text-decoration: underline;
+      }
+
+      .link-row {
+        margin-top: 16px;
+        overflow-wrap: anywhere;
+      }
+
       footer {
         margin-top: 56px;
         padding-top: 18px;
@@ -163,11 +187,10 @@
         border-radius: 999px;
         border: 1px solid #75534f;
 
-        background: rgba(117, 83, 79, 0.88);
+        background: #75534f;
         color: var(--paper);
-        backdrop-filter: blur(10px);
 
-        box-shadow: 0 6px 20px rgba(48, 48, 48, 0.1);
+        box-shadow: 0 8px 24px rgba(65, 43, 40, 0.18), 0 0 18px rgba(117, 83, 79, 0.16);
 
         z-index: 100;
       }
@@ -285,15 +308,15 @@
         background: var(--paper);
       }
 
-      .edu .row-heading {
+      .row-heading {
         display: flex;
         flex-wrap: wrap;
         align-items: baseline;
         gap: 4px 16px;
       }
 
-      .edu .row-heading > time,
-      .edu .row-heading .row-date {
+      .row-heading > time,
+      .row-heading .row-date {
         margin-left: auto;
         white-space: nowrap;
         color: var(--text-muted);
@@ -414,9 +437,11 @@
               <a class="school" href="https://www.cmu.edu" target="_blank" rel="noopener">
                 Carnegie Mellon University
               </a>
+            </div>
+            <div class="row-heading details">
+              <span>BS Electrical &amp; Computer Engineering • Minor: Computer Science</span>
               <time datetime="2024-05">May 2024</time>
             </div>
-            <div class="details">BS Electrical &amp; Computer Engineering • Minor: Computer Science</div>
           </div>
 
           <div class="row">
@@ -424,9 +449,11 @@
               <a class="school" href="https://www.hpe.com/us" target="_blank" rel="noopener">
                 Hewlett Packard Enterprise
               </a>
+            </div>
+            <div class="row-heading details">
+              <span>Object &amp; File Storage • C++ • Distributed systems</span>
               <span class="row-date"><time datetime="2024-07">July 2024</time> - Present</span>
             </div>
-            <div class="details">Object &amp; File Storage • C++ • Distributed systems</div>
           </div>
         </div>
 
@@ -495,54 +522,7 @@
     <section class="section">
       <h2 id="projects">Projects</h2>
 
-      <!-- Project 1 -->
-      <div class="card">
-        <strong>SightMate: Automated Navigation System</strong>
-
-        <div class="muted">
-          Wearable assistive navigation system for visually-impaired users, combining real-time obstacle
-          detection with spatial audio feedback for safe, hands-free mobility.
-        </div>
-
-        <ul>
-          <li>
-            Built a multi-sensor perception stack (ultrasonic + IMU) on NVIDIA Jetson for low-latency obstacle
-            detection and distance estimation
-          </li>
-          <li>
-            Designed audio-based guidance logic to convey direction and proximity without overwhelming the user
-          </li>
-        </ul>
-
-        <div>
-          <a href="assets/documents/SightMate_Presentation.pdf" target="_blank" rel="noopener">Presentation</a> · <a href="assets/documents/SightMate_Report.pdf" target="_blank" rel="noopener">Report</a>
-        </div>
-      </div>
-
-      <!-- Project 2 -->
-      <div class="card">
-        <strong>Fractal Tree Based Metadata Indexing for Object Storage</strong>
-
-        <div class="muted">
-          Designed and implemented an in-memory fractal tree–based metadata index to reduce lookup overhead
-          and improve partial read performance in a production S3-compatible object storage system.
-        </div>
-
-        <ul>
-          <li>
-            Implemented a fractal tree data structure to aggregate and organize object metadata in memory,
-            reducing repeated traversal during read operations
-          </li>
-          <li>
-            Analyzed performance trade-offs against existing indexing approaches and proposed a hybrid strategy
-            for future production integration
-          </li>
-          <li>Project recognized for technical excellence and impact, resulting in a full-time return offer.</li>
-        </ul>
-
-      </div>
-
-      <!-- Project 3 -->
+      <!-- Project 1: EMS -->
       <div class="card">
         <strong>Microgrid Energy Management System (EMS)</strong>
         <div class="muted">
@@ -568,9 +548,65 @@
           </li>
         </ul>
 
-        <div>
-          <a href="https://github.com/ShakthiAngou/MicrogridController" target="_blank" rel="noopener">GitHub Repository</a>
+        <div class="row-heading">
+          <a class="pill" href="https://github.com/ShakthiAngou/MicrogridController" target="_blank" rel="noopener">GitHub Repository</a>
+          <time datetime="2026-05">May 2026</time>
         </div>
+      </div>
+
+      <!-- Project 2: SightMate -->
+      <div class="card">
+        <strong>SightMate: Automated Navigation System</strong>
+
+        <div class="muted">
+          Wearable assistive navigation system for visually-impaired users, combining real-time obstacle
+          detection with spatial audio feedback for safe, hands-free mobility.
+        </div>
+
+        <ul>
+          <li>
+            Built a multi-sensor perception stack (ultrasonic + IMU) on NVIDIA Jetson for low-latency obstacle
+            detection and distance estimation
+          </li>
+          <li>
+            Designed audio-based guidance logic to convey direction and proximity without overwhelming the user
+          </li>
+        </ul>
+
+        <div class="row-heading">
+          <div>
+            <a class="pill" href="assets/documents/SightMate_Presentation.pdf" target="_blank" rel="noopener">Presentation</a>
+            <a class="pill" href="assets/documents/SightMate_Report.pdf" target="_blank" rel="noopener">Report</a>
+          </div>
+          <time datetime="2024-05">May 2024</time>
+        </div>
+      </div>
+
+      <!-- Project 3: Fractal Tree -->
+      <div class="card">
+        <strong>Fractal Tree Based Metadata Indexing for Object Storage</strong>
+
+        <div class="muted">
+          Designed and implemented an in-memory fractal tree–based metadata index to reduce lookup overhead
+          and improve partial read performance in a production S3-compatible object storage system.
+        </div>
+
+        <ul>
+          <li>
+            Implemented a fractal tree data structure to aggregate and organize object metadata in memory,
+            reducing repeated traversal during read operations
+          </li>
+          <li>
+            Analyzed performance trade-offs against existing indexing approaches and proposed a hybrid strategy
+            for future production integration
+          </li>
+          <li>Project recognized for technical excellence and impact, resulting in a full-time return offer.</li>
+        </ul>
+
+        <div class="row-heading">
+          <time datetime="2023-08">Aug 2023</time>
+        </div>
+
       </div>
     </section>
 
@@ -605,6 +641,10 @@
             before deployment.
           </li>
         </ul>
+
+        <div class="row-heading">
+          <span class="row-date"><time datetime="2024-07">July 2024</time> - Present</span>
+        </div>
       </div>
 
       <!-- HPE Internship -->
@@ -623,6 +663,10 @@
           </li>
           <li>Project recognized for technical excellence and impact, resulting in a full-time return offer</li>
         </ul>
+
+        <div class="row-heading">
+          <span class="row-date"><time datetime="2023-05">May 2023</time> - <time datetime="2023-08">Aug 2023</time></span>
+        </div>
       </div>
 
       <!-- Blackbuck -->
@@ -640,6 +684,10 @@
             engagement
           </li>
         </ul>
+
+        <div class="row-heading">
+          <span class="row-date"><time datetime="2022-05">May 2022</time> - <time datetime="2022-08">Aug 2022</time></span>
+        </div>
       </div>
 
       <!-- CMU Campus Job -->
@@ -657,6 +705,10 @@
             professionalism
           </li>
         </ul>
+
+        <div class="row-heading">
+          <span class="row-date"><time datetime="2021-09">Sep 2021</time> - <time datetime="2023-05">May 2023</time></span>
+        </div>
       </div>
     </section>
 
@@ -674,8 +726,9 @@
           software systems through energy and carbon efficiency.
         </div>
 
-        <div style="margin-top: 16px;">
-          <a href="assets/documents/1_2026_Green_Software_Practitioner.pdf" target="_blank" rel="noopener">Certificate</a>
+        <div class="row-heading" style="margin-top: 16px;">
+          <a class="pill" href="assets/documents/1_2026_Green_Software_Practitioner.pdf" target="_blank" rel="noopener">Certificate</a>
+          <time datetime="2026-09">Sep 2026</time>
         </div>
       </div>
     </section>
@@ -687,13 +740,12 @@
       <h2 id="contact">Contact</h2>
 
       <div class="card">
-        <div>
-          LinkedIn:
-          <a href="https://www.linkedin.com/in/shakthi-angou/" target="_blank" rel="noopener">Shakthi Angou</a>
-        </div>
-        <div>
-          GitHub:
-          <a href="https://github.com/ShakthiAngou" target="_blank" rel="noopener">github.com/ShakthiAngou</a>
+        <strong>Reach out to connect, collaborate, and build!</strong>
+
+        <div class="link-row">
+          <a class="pill" href="https://www.linkedin.com/in/shakthi-angou/" target="_blank" rel="noopener">Shakthi Angou</a>
+          <a class="pill" href="https://github.com/ShakthiAngou" target="_blank" rel="noopener">github.com/ShakthiAngou</a>
+          <a class="pill" href="mailto:shakthiangou29@gmail.com">shakthiangou29@gmail.com</a>
         </div>
       </div>
     </section>
