@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>SightMate | Shakthi Angou</title>
+    <meta
+      name="description"
+      content="SightMate, a wearable assistive navigation capstone project by Shakthi Angou."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400&display=swap" rel="stylesheet" />
+
+    <style>
+      @font-face {
+        font-family: "GT Standard L";
+        src: url("https://framerusercontent.com/assets/cD3PlB0qn71m4YssUzzkDBThmPA.woff2") format("woff2");
+        font-style: normal;
+        font-weight: 300;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "Formular Mono";
+        src: url("https://framerusercontent.com/assets/7ECgiP6io6VC8o5You8qUa6tJWQ.woff2") format("woff2");
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+      }
+
+      :root {
+        --paper: #dfecd9;
+        --card-bg: #faf9f5;
+        --brown: #75534f;
+        --text-main: #303030;
+        --text-muted: #505050;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        padding: 116px 18px 64px;
+        background: var(--paper);
+        color: var(--text-main);
+        font-family: "GT Standard L", "Helvetica Neue", Arial, sans-serif;
+        font-weight: 300;
+        line-height: 1.55;
+      }
+
+      a {
+        color: var(--text-main);
+      }
+
+      .topbar {
+        position: fixed;
+        top: 24px;
+        left: 50%;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        gap: 42px;
+        padding: 12px 18px;
+        transform: translateX(-50%);
+        border: 1px solid var(--brown);
+        border-radius: 999px;
+        background: var(--brown);
+        box-shadow: 0 8px 24px rgba(65, 43, 40, 0.18), 0 0 18px rgba(117, 83, 79, 0.16);
+        white-space: nowrap;
+      }
+
+      .topbar a {
+        color: var(--paper);
+        text-decoration: none;
+      }
+
+      .topbar a:hover,
+      .topbar a:focus-visible {
+        color: #ffffff;
+        text-decoration: underline;
+      }
+
+      .brand {
+        font-family: "Space Mono", "Courier New", monospace;
+      }
+
+      .topbar nav {
+        display: flex;
+        gap: 18px;
+      }
+
+      main,
+      footer {
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .hero {
+        padding: 58px 0 26px;
+      }
+
+      .eyebrow,
+      h2 {
+        color: var(--brown);
+        font-family: "Formular Mono", "Courier New", monospace;
+        font-weight: 400;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+      }
+
+      .eyebrow {
+        margin: 0 0 14px;
+        font-size: 0.9rem;
+      }
+
+      h1 {
+        max-width: 800px;
+        margin: 0;
+        color: var(--brown);
+        font-family: "Space Mono", "Courier New", monospace;
+        font-size: clamp(2.2rem, 6vw, 4.5rem);
+        font-weight: 400;
+        line-height: 1.12;
+      }
+
+      .lede {
+        max-width: 70ch;
+        margin: 22px 0 0;
+        color: var(--text-muted);
+        font-size: 1.15rem;
+      }
+
+      h2 {
+        margin: 36px 0 14px;
+        font-size: 1.35rem;
+      }
+
+      .card {
+        margin: 14px 0;
+        padding: 22px;
+        border: 2px solid var(--brown);
+        border-radius: 16px;
+        background: var(--card-bg);
+      }
+
+      .card h3 {
+        margin: 0 0 6px;
+        color: #111111;
+        font-size: 1.05rem;
+      }
+
+      .card p {
+        margin: 0;
+      }
+
+      .muted {
+        color: var(--text-muted);
+      }
+
+      .system-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .system-grid .card {
+        margin: 0;
+      }
+
+      .pill {
+        display: inline-block;
+        max-width: 100%;
+        margin: 6px 6px 0 0;
+        padding: 6px 12px;
+        border: 1px solid var(--brown);
+        border-radius: 999px;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        text-decoration: none;
+      }
+
+      .pill:hover,
+      .pill:focus-visible {
+        background: var(--paper);
+        color: var(--text-main);
+        text-decoration: underline;
+      }
+
+      .actions {
+        margin-top: 22px;
+      }
+
+      .compact-card .actions {
+        margin-top: 10px;
+      }
+
+      footer {
+        margin-top: 56px;
+        padding-top: 18px;
+        border-top: 1px solid var(--brown);
+        color: var(--text-muted);
+      }
+
+      @media (max-width: 700px) {
+        body {
+          padding-top: 150px;
+        }
+
+        .topbar {
+          width: calc(100% - 36px);
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 8px 24px;
+          border-radius: 20px;
+        }
+
+        .system-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          padding-top: 24px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="topbar">
+      <a class="brand" href="index.html">shakthi angou</a>
+      <nav aria-label="Project navigation">
+        <a href="index.html#projects">All Projects</a>
+      </nav>
+    </header>
+
+    <main>
+      <header class="hero">
+        <p class="eyebrow">Capstone Project · May 2024</p>
+        <h1>SightMate</h1>
+        <p class="lede">
+          A wearable assistive navigation system for visually impaired users, combining real-time obstacle
+          detection with spatial audio feedback for safe, hands-free mobility.
+        </p>
+        <div class="actions">
+          <a class="pill" href="assets/documents/SightMate_Presentation.pdf" target="_blank" rel="noopener">
+            Presentation
+          </a>
+          <a class="pill" href="assets/documents/SightMate_Report.pdf" target="_blank" rel="noopener">Report</a>
+        </div>
+      </header>
+
+      <section>
+        <h2>Purpose</h2>
+        <div class="card">
+          <p>
+            SightMate explores how wearable sensing and intuitive audio guidance can support independent
+            navigation. The capstone focused on communicating nearby obstacles without requiring a handheld
+            interface or overwhelming the user with feedback.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2>System</h2>
+        <div class="system-grid">
+          <article class="card">
+            <h3>Ultrasonic Sensing</h3>
+            <p class="muted">Detects nearby obstacles and provides distance information to the perception stack.</p>
+          </article>
+          <article class="card">
+            <h3>Inertial Measurement</h3>
+            <p class="muted">Uses IMU data to support awareness of the wearable system's motion and orientation.</p>
+          </article>
+          <article class="card">
+            <h3>Embedded Compute</h3>
+            <p class="muted">Runs the low-latency perception pipeline on an NVIDIA Jetson platform.</p>
+          </article>
+          <article class="card">
+            <h3>Spatial Audio</h3>
+            <p class="muted">Conveys obstacle direction and proximity through hands-free audio guidance.</p>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2>Implementation</h2>
+        <div class="card">
+          <ul>
+            <li>Combined ultrasonic and IMU inputs in a multi-sensor perception stack.</li>
+            <li>Processed sensor data on NVIDIA Jetson for low-latency obstacle detection and distance estimation.</li>
+            <li>Designed guidance logic to communicate direction and proximity without overwhelming the user.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>Capstone Deliverables</h2>
+        <div class="card compact-card">
+          <p class="muted">
+            The project presentation and final report document the system design, implementation, and capstone work.
+          </p>
+          <div class="actions">
+            <a class="pill" href="assets/documents/SightMate_Presentation.pdf" target="_blank" rel="noopener">
+              Presentation
+            </a>
+            <a class="pill" href="assets/documents/SightMate_Report.pdf" target="_blank" rel="noopener">Report</a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>© <span id="year"></span> Shakthi Angou</footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

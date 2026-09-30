@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Microgrid EMS | Shakthi Angou</title>
+    <meta
+      name="description"
+      content="A modular microgrid Energy Management System simulation by Shakthi Angou."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400&display=swap" rel="stylesheet" />
+
+    <style>
+      @font-face {
+        font-family: "GT Standard L";
+        src: url("https://framerusercontent.com/assets/cD3PlB0qn71m4YssUzzkDBThmPA.woff2") format("woff2");
+        font-style: normal;
+        font-weight: 300;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "Formular Mono";
+        src: url("https://framerusercontent.com/assets/7ECgiP6io6VC8o5You8qUa6tJWQ.woff2") format("woff2");
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+      }
+
+      :root {
+        --paper: #dfecd9;
+        --card-bg: #faf9f5;
+        --brown: #75534f;
+        --text-main: #303030;
+        --text-muted: #505050;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        padding: 116px 18px 64px;
+        background: var(--paper);
+        color: var(--text-main);
+        font-family: "GT Standard L", "Helvetica Neue", Arial, sans-serif;
+        font-weight: 300;
+        line-height: 1.55;
+      }
+
+      a {
+        color: var(--text-main);
+      }
+
+      .topbar {
+        position: fixed;
+        top: 24px;
+        left: 50%;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        gap: 42px;
+        padding: 12px 18px;
+        transform: translateX(-50%);
+        border: 1px solid var(--brown);
+        border-radius: 999px;
+        background: var(--brown);
+        box-shadow: 0 8px 24px rgba(65, 43, 40, 0.18), 0 0 18px rgba(117, 83, 79, 0.16);
+        white-space: nowrap;
+      }
+
+      .topbar a {
+        color: var(--paper);
+        text-decoration: none;
+      }
+
+      .topbar a:hover,
+      .topbar a:focus-visible {
+        color: #ffffff;
+        text-decoration: underline;
+      }
+
+      .brand {
+        font-family: "Space Mono", "Courier New", monospace;
+      }
+
+      .topbar nav {
+        display: flex;
+        gap: 18px;
+      }
+
+      main,
+      footer {
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .hero {
+        padding: 58px 0 26px;
+      }
+
+      .eyebrow,
+      h2 {
+        color: var(--brown);
+        font-family: "Formular Mono", "Courier New", monospace;
+        font-weight: 400;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+      }
+
+      .eyebrow {
+        margin: 0 0 14px;
+        font-size: 0.9rem;
+      }
+
+      h1 {
+        max-width: 800px;
+        margin: 0;
+        color: var(--brown);
+        font-family: "Space Mono", "Courier New", monospace;
+        font-size: clamp(2.2rem, 6vw, 4.5rem);
+        font-weight: 400;
+        line-height: 1.12;
+      }
+
+      .lede {
+        max-width: 70ch;
+        margin: 22px 0 0;
+        color: var(--text-muted);
+        font-size: 1.15rem;
+      }
+
+      h2 {
+        margin: 36px 0 14px;
+        font-size: 1.35rem;
+      }
+
+      .card {
+        margin: 14px 0;
+        padding: 22px;
+        border: 2px solid var(--brown);
+        border-radius: 16px;
+        background: var(--card-bg);
+      }
+
+      .card h3 {
+        margin: 0 0 6px;
+        color: #111111;
+        font-size: 1.05rem;
+      }
+
+      .card p {
+        margin: 0;
+      }
+
+      .muted {
+        color: var(--text-muted);
+      }
+
+      .system-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .system-grid .card {
+        margin: 0;
+      }
+
+      .pill {
+        display: inline-block;
+        max-width: 100%;
+        margin: 6px 6px 0 0;
+        padding: 6px 12px;
+        border: 1px solid var(--brown);
+        border-radius: 999px;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        text-decoration: none;
+      }
+
+      .pill:hover,
+      .pill:focus-visible {
+        background: var(--paper);
+        color: var(--text-main);
+        text-decoration: underline;
+      }
+
+      .actions {
+        margin-top: 22px;
+      }
+
+      footer {
+        margin-top: 56px;
+        padding-top: 18px;
+        border-top: 1px solid var(--brown);
+        color: var(--text-muted);
+      }
+
+      @media (max-width: 700px) {
+        body {
+          padding-top: 150px;
+        }
+
+        .topbar {
+          width: calc(100% - 36px);
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 8px 24px;
+          border-radius: 20px;
+        }
+
+        .system-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          padding-top: 24px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="topbar">
+      <a class="brand" href="index.html">shakthi angou</a>
+      <nav aria-label="Project navigation">
+        <a href="index.html#projects">All Projects</a>
+        <a href="blog.html">Blog</a>
+      </nav>
+    </header>
+
+    <main>
+      <header class="hero">
+        <p class="eyebrow">Project · May 2026</p>
+        <h1>Microgrid Energy Management System</h1>
+        <p class="lede">
+          A modular simulation for coordinating solar generation, load demand, supercapacitor storage, and
+          hydrogen storage across 24-hour microgrid scenarios.
+        </p>
+        <div class="actions">
+          <a class="pill" href="https://github.com/ShakthiAngou/MicrogridController" target="_blank" rel="noopener">
+            GitHub Repository
+          </a>
+        </div>
+      </header>
+
+      <section>
+        <h2>Purpose</h2>
+        <div class="card">
+          <p>
+            The long-term goal is to develop an intelligent energy management system for decentralised
+            microgrids in rural India, supporting reliable access to renewable energy. The current simulation
+            provides a foundation for testing dispatch strategies before moving toward physical hardware.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2>System</h2>
+        <div class="system-grid">
+          <article class="card">
+            <h3>Solar Generation</h3>
+            <p class="muted">Models renewable energy supplied to the microgrid over a daily operating scenario.</p>
+          </article>
+          <article class="card">
+            <h3>Load Demand</h3>
+            <p class="muted">Tracks energy consumption and the balance between generation, storage, and demand.</p>
+          </article>
+          <article class="card">
+            <h3>Supercapacitor Storage</h3>
+            <p class="muted">Handles short-duration energy storage as the first priority in the dispatch strategy.</p>
+          </article>
+          <article class="card">
+            <h3>Hydrogen Storage</h3>
+            <p class="muted">Provides a pathway for longer-duration storage after short-term capacity is used.</p>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2>Current Implementation</h2>
+        <div class="card">
+          <ul>
+            <li>Rule-based dispatch prioritizes short-duration storage before hydrogen conversion.</li>
+            <li>Energy flows are tracked across configurable 24-hour scenarios.</li>
+            <li>
+              A Matplotlib dashboard presents storage state of charge, hydrogen inventory, generation, demand,
+              and the post-storage energy balance.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>Roadmap</h2>
+        <div class="card">
+          <p>
+            Future versions will work toward forecast-aware model predictive control, hardware-in-the-loop
+            testing, and ML-based predictive state estimation for more adaptive energy management.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Blog</h2>
+        <div class="card">
+          <h3>Project posts coming soon</h3>
+          <p class="muted">
+            Future posts will document the EMS architecture, dispatch strategy, simulation results, and progress
+            toward predictive control and hardware-in-the-loop testing.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>© <span id="year"></span> Shakthi Angou</footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
