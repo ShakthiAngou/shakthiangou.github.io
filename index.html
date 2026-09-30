@@ -40,9 +40,10 @@
         Theme variables
       -------------------------- */
       :root {
-        --paper: #e4edf6;
+        --page-gutter: 18px;
+        --paper: #dfecd9;
         --card-bg: #faf9f5;
-        --card-border: #b8b5ae;
+        --card-border: #75534f;
         --text-main: #303030;
         --text-muted: #505050;
         --accent: #303030;
@@ -55,7 +56,7 @@
         font-family: "GT Standard L", "Helvetica Neue", Arial, sans-serif;
         font-weight: 300;
         margin: 0;
-        padding: 110px 18px 64px;
+        padding: 110px var(--page-gutter) 64px;
         line-height: 1.55;
         color: var(--text-main);
 
@@ -96,6 +97,7 @@
       }
 
       h2 {
+        color: #75534f;
         margin-top: 36px;
         font-family: "Formular Mono", "Courier New", monospace;
         font-weight: 400;
@@ -112,7 +114,7 @@
       -------------------------- */
       .card {
         background: var(--card-bg);
-        border: 1px solid var(--card-border);
+        border: 2px solid var(--card-border);
         border-radius: 16px;
         padding: 18px;
         margin: 14px 0;
@@ -159,9 +161,10 @@
         padding: 12px 18px;
 
         border-radius: 999px;
-        border: 1px solid var(--card-border);
+        border: 1px solid #75534f;
 
-        background: var(--paper);
+        background: rgba(117, 83, 79, 0.88);
+        color: var(--paper);
         backdrop-filter: blur(10px);
 
         box-shadow: 0 6px 20px rgba(48, 48, 48, 0.1);
@@ -169,11 +172,59 @@
         z-index: 100;
       }
 
+      @media (max-width: 900px) {
+        .topbar {
+          box-sizing: border-box;
+          width: calc(100% - var(--page-gutter) - var(--page-gutter));
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 8px 24px;
+          border-radius: 20px;
+        }
+
+        .topbar nav {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 6px 14px;
+        }
+
+        .topbar nav a {
+          margin-right: 0;
+        }
+      }
+
+      @media (max-width: 600px) {
+        body {
+          padding-top: 180px;
+        }
+
+        #home .card {
+          padding: 24px 18px;
+        }
+
+        .section h2 {
+          font-size: clamp(1rem, 4vw, 1.5rem);
+          overflow-wrap: anywhere;
+        }
+      }
+
+      .topbar .brand,
+      .topbar nav a {
+        color: var(--paper);
+      }
+
+      .topbar a:hover,
+      .topbar a:focus-visible {
+        color: #ffffff;
+        text-decoration: underline;
+      }
+
       .brand {
         font-family: "Space Mono", "Courier New", monospace;
         font-weight: 400;
         letter-spacing: 0.2px;
-        color: var(--text-main);
+        color: #75534f;
         text-decoration: none;
       }
 
@@ -190,7 +241,7 @@
       }
 
       .hero h1 {
-        color: var(--text-main);
+        color: #75534f;
         margin: 0 0 18px;
         text-align: center;
         font-size: clamp(2rem, 7vw, 4.5rem);
@@ -234,6 +285,21 @@
         background: var(--paper);
       }
 
+      .edu .row-heading {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 4px 16px;
+      }
+
+      .edu .row-heading > time,
+      .edu .row-heading .row-date {
+        margin-left: auto;
+        white-space: nowrap;
+        color: var(--text-muted);
+        font-size: 0.95rem;
+      }
+
       .school {
         font-weight: 700;
         color: var(--text-main);
@@ -272,13 +338,13 @@
       }
 
       .btn:hover {
-        border-color: var(--text-main);
+        border-color: var(--card-border);
       }
 
       /* -------------------------
-        Passions section (3 squares)
+        Interests section (3 squares)
       -------------------------- */
-      .passions-grid {
+      .interests-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
         gap: 20px;
@@ -305,7 +371,7 @@
       }
 
       @media (max-width: 860px) {
-        .passions-grid {
+        .interests-grid {
           grid-template-columns: 1fr;
         }
 
@@ -325,7 +391,7 @@
       <a class="brand" href="#home">shakthi angou</a>
 
       <nav>
-        <a href="#passions">Passions</a>
+        <a href="#interests">Interests</a>
         <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
         <a href="#certifications">Certifications</a>
@@ -344,16 +410,22 @@
         <!-- Education / Current role -->
         <div class="edu">
           <div class="row">
-            <a class="school" href="https://www.cmu.edu" target="_blank" rel="noopener">
-              Carnegie Mellon University
-            </a>
+            <div class="row-heading">
+              <a class="school" href="https://www.cmu.edu" target="_blank" rel="noopener">
+                Carnegie Mellon University
+              </a>
+              <time datetime="2024-05">May 2024</time>
+            </div>
             <div class="details">BS Electrical &amp; Computer Engineering • Minor: Computer Science</div>
           </div>
 
           <div class="row">
-            <a class="school" href="https://www.hpe.com/us" target="_blank" rel="noopener">
-              Hewlett Packard Enterprise
-            </a>
+            <div class="row-heading">
+              <a class="school" href="https://www.hpe.com/us" target="_blank" rel="noopener">
+                Hewlett Packard Enterprise
+              </a>
+              <span class="row-date"><time datetime="2024-07">July 2024</time> - Present</span>
+            </div>
             <div class="details">Object &amp; File Storage • C++ • Distributed systems</div>
           </div>
         </div>
@@ -386,12 +458,12 @@
     </section>
 
     <!-- =========================================================
-      PASSIONS
+      INTERESTS
     ========================================================== -->
     <section class="section">
-      <h2 id="passions">Passions</h2>
+      <h2 id="interests">Interests</h2>
 
-      <div class="passions-grid">
+      <div class="interests-grid">
         <div class="card passion-card">
           <strong>Climate &amp; Energy Technology</strong>
           <div class="muted">
