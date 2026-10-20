@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- =========================================================
+      META
+    ========================================================== -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Courses &amp; Certifications | Shakthi Angou</title>
+    <meta
+      name="description"
+      content="Courses, certificates, and technical notes from continued learning."
+    />
+
+    <!-- =========================================================
+      STYLES
+    ========================================================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/portfolio.css" />
+  </head>
+
+  <body>
+    <header class="topbar">
+      <a class="brand" href="index.html">shakthi angou</a>
+      <nav aria-label="Main navigation">
+        <a href="projects.html">Projects</a>
+        <a href="experience.html">Experiences</a>
+        <a href="certifications.html">Certifications</a>
+        <a href="blog.html">Blog</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </header>
+    <main>
+      <header class="section collection-hero">
+        <p class="eyebrow">Continued learning</p>
+        <h1>Courses &amp; Certifications</h1>
+        <p>Courses, certificates, and technical notes from continued learning.</p>
+      </header>
+    <!-- Every course has a Certificate link or placeholder; Learnings and Technical Notes are optional. -->
+    <section class="section" aria-label="Courses &amp; Certifications">
+
+
+      <div class="card collection-card" id="green-software-practitioner">
+        <h2>Green Software Practitioner</h2>
+
+        <div class="muted">
+          Certified in sustainable software principles, with a focus on reducing the environmental impact of
+          software systems through energy and carbon efficiency.
+        </div>
+
+        <div class="row-heading" style="margin-top: 16px;">
+          <div>
+            <a class="pill" href="assets/documents/1_2026_Green_Software_Practitioner.pdf" target="_blank" rel="noopener">Certificate</a>
+            <a class="pill" href="assets/documents/1_2026_Green_Software_Practitioner_KL.pdf" target="_blank" rel="noopener">Technical Notes</a>
+          </div>
+          <time datetime="2026-09">Sep 2026</time>
+        </div>
+      </div>
+
+      <div class="card collection-card" id="embedded-systems">
+        <h2>Introduction to Embedded Systems and Development Environments</h2>
+
+        <div class="muted">
+          An introduction to embedded systems fundamentals, C programming, and development workflows for building and debugging firmware.
+        </div>
+
+        <div class="row-heading" style="margin-top: 16px;">
+          <div>
+            <span class="pill" aria-label="Certificate coming soon">Certificate</span>
+            <a class="pill" href="embedded-systems.html">Learnings</a>
+            <span class="pill" aria-label="Technical Notes coming soon" title="Technical Notes coming soon">Technical Notes</span>
+          </div>
+          <time datetime="2026-10">Oct 2026</time>
+        </div>
+      </div>
+    </section>
+    </main>
+
+    <footer class="muted section">© <span id="y"></span> Shakthi Angou</footer>
+
+    <!-- =========================================================
+      SCRIPTS
+    ========================================================== -->
+    <script>
+      // Auto-update footer year
+      document.getElementById("y").textContent = new Date().getFullYear();
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- =========================================================
+      META
+    ========================================================== -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Projects | Shakthi Angou</title>
+    <meta
+      name="description"
+      content="Engineering projects in energy systems, assistive navigation, and storage."
+    />
+
+    <!-- =========================================================
+      STYLES
+    ========================================================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/portfolio.css" />
+  </head>
+
+  <body>
+    <header class="topbar">
+      <a class="brand" href="index.html">shakthi angou</a>
+      <nav aria-label="Main navigation">
+        <a href="projects.html">Projects</a>
+        <a href="experience.html">Experiences</a>
+        <a href="certifications.html">Certifications</a>
+        <a href="blog.html">Blog</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </header>
+    <main>
+      <header class="section collection-hero">
+        <p class="eyebrow">Ideas into practice</p>
+        <h1>Projects</h1>
+        <p>Engineering projects in energy systems, assistive navigation, and storage.</p>
+      </header>
+    <section class="section" aria-label="Projects">
+
+
+      <!-- Project 1: EMS -->
+      <div class="card collection-card" id="ems">
+        <h2>Microgrid Energy Management System (EMS)</h2>
+        <div class="muted">
+          Long-term goal: develop an intelligent energy management system for decentralised microgrids in
+          rural India, supporting reliable access to renewable energy.
+        </div>
+        <ul>
+          <li>
+            Built a modular microgrid Energy Management System (EMS) simulation for solar generation, load
+            demand, supercapacitor storage, and hydrogen storage.
+          </li>
+          <li>
+            Implemented rule-based dispatch logic that prioritises short-duration storage before hydrogen
+            conversion and tracks system energy flows over 24-hour scenarios.
+          </li>
+          <li>
+            Developed a Matplotlib dashboard for storage state of charge, hydrogen inventory, generation,
+            demand, and post-storage energy balance, establishing a foundation for forecast-aware MPC.
+          </li>
+          <li>
+            Future versions will work towards hardware-in-the-loop testing and ML-based predictive state
+            estimation to support more adaptive energy management.
+          </li>
+        </ul>
+
+        <div class="row-heading">
+          <div>
+            <a class="pill" href="ems.html">Project Page</a>
+            <a class="pill" href="https://github.com/ShakthiAngou/MicrogridController" target="_blank" rel="noopener">GitHub Repository</a>
+          </div>
+          <time datetime="2026-05">May 2026</time>
+        </div>
+      </div>
+
+      <!-- Project 2: SightMate -->
+      <div class="card collection-card" id="sightmate">
+        <h2>SightMate: Automated Navigation System</h2>
+
+        <div class="muted">
+          Wearable assistive navigation system for visually-impaired users, combining real-time obstacle
+          detection with spatial audio feedback for safe, hands-free mobility.
+        </div>
+
+        <ul>
+          <li>
+            Built a multi-sensor perception stack (ultrasonic + IMU) on NVIDIA Jetson for low-latency obstacle
+            detection and distance estimation
+          </li>
+          <li>
+            Designed audio-based guidance logic to convey direction and proximity without overwhelming the user
+          </li>
+        </ul>
+
+        <div class="row-heading">
+          <div>
+            <a class="pill" href="sightmate.html">Project Page</a>
+            <a class="pill" href="assets/documents/SightMate_Presentation.pdf" target="_blank" rel="noopener">Presentation</a>
+            <a class="pill" href="assets/documents/SightMate_Report.pdf" target="_blank" rel="noopener">Report</a>
+          </div>
+          <time datetime="2024-05">May 2024</time>
+        </div>
+      </div>
+
+      <!-- Project 3: Fractal Tree -->
+      <div class="card collection-card" id="fractal-tree">
+        <h2>Fractal Tree Based Metadata Indexing for Object Storage</h2>
+
+        <div class="muted">
+          Designed and implemented an in-memory fractal tree–based metadata index to reduce lookup overhead
+          and improve partial read performance in a production S3-compatible object storage system.
+        </div>
+
+        <ul>
+          <li>
+            Implemented a fractal tree data structure to aggregate and organise object metadata in memory,
+            reducing repeated traversal during read operations
+          </li>
+          <li>
+            Analysed performance trade-offs against existing indexing approaches and proposed a hybrid strategy
+            for future production integration
+          </li>
+          <li>Project recognised for technical excellence and impact, resulting in a full-time return offer.</li>
+        </ul>
+
+        <div class="row-heading">
+          <time datetime="2023-08">Aug 2023</time>
+        </div>
+
+      </div>
+    </section>
+    </main>
+
+    <footer class="muted section">© <span id="y"></span> Shakthi Angou</footer>
+
+    <!-- =========================================================
+      SCRIPTS
+    ========================================================== -->
+    <script>
+      // Auto-update footer year
+      document.getElementById("y").textContent = new Date().getFullYear();
+    </script>
+
+  </body>
+</html>

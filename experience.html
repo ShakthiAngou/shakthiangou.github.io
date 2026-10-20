@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- =========================================================
+      META
+    ========================================================== -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Experiences | Shakthi Angou</title>
+    <meta
+      name="description"
+      content="Software engineering, internships, and work at Carnegie Mellon University."
+    />
+
+    <!-- =========================================================
+      STYLES
+    ========================================================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/portfolio.css" />
+  </head>
+
+  <body>
+    <header class="topbar">
+      <a class="brand" href="index.html">shakthi angou</a>
+      <nav aria-label="Main navigation">
+        <a href="projects.html">Projects</a>
+        <a href="experience.html">Experiences</a>
+        <a href="certifications.html">Certifications</a>
+        <a href="blog.html">Blog</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </header>
+    <main>
+      <header class="section collection-hero">
+        <p class="eyebrow">Work along the way</p>
+        <h1>Experiences</h1>
+        <p>Software engineering, internships, and work at Carnegie Mellon University.</p>
+      </header>
+    <section class="section" aria-label="Experiences">
+
+
+      <!-- HPE Full-Time -->
+      <div class="card collection-card" id="hpe-systems-software-engineer">
+        <h2>Hewlett Packard Enterprise — Systems Software Engineer</h2>
+        <div class="muted">Object &amp; File Storage • C++ • Distributed Systems</div>
+
+        <ul>
+          <li>
+            Developed Namespace Index and File Index features for HPE's distributed, S3-compatible object and
+            file storage platforms.
+          </li>
+          <li>
+            Implemented end-to-end object locking and versioning, enforcing retention and access controls
+            through metadata and authorisation workflows.
+          </li>
+          <li>
+            Added Grafana-integrated metrics and in-memory counters to monitor file-storage health and performance.
+          </li>
+          <li>
+            Built state-inspection and diagnostic tools in a gRPC debugging framework to accelerate root-cause analysis.
+          </li>
+          <li>
+            Used Kubernetes-based storage simulations to reproduce failures, validate fixes, and test features
+            before deployment.
+          </li>
+        </ul>
+
+        <div class="row-heading">
+          <span class="row-date"><time datetime="2024-07">July 2024</time> - Present</span>
+        </div>
+      </div>
+
+      <!-- HPE Internship -->
+      <div class="card collection-card" id="hpe-internship">
+        <h2>Hewlett Packard Enterprise — Software Engineering Intern</h2>
+        <div class="muted">Object Storage • C++ • Performance Engineering</div>
+
+        <ul>
+          <li>
+            Designed and implemented a fractal tree–based in-memory metadata index to reduce lookup overhead
+            and accelerate partial object reads
+          </li>
+          <li>
+            Conducted performance analysis against existing indexing approaches and proposed a hybrid strategy
+            for production integration
+          </li>
+          <li>Project recognised for technical excellence and impact, resulting in a full-time return offer</li>
+        </ul>
+
+        <div class="row-heading">
+          <span class="row-date"><time datetime="2023-05">May 2023</time> - <time datetime="2023-08">Aug 2023</time></span>
+        </div>
+      </div>
+
+      <!-- Blackbuck -->
+      <div class="card collection-card" id="blackbuck-insights">
+        <h2>Blackbuck Insights — Data Engineering Intern</h2>
+        <div class="muted">Data Modelling • UX • Analytics</div>
+
+        <ul>
+          <li>
+            Proposed tagging and taxonomy models to structure large-scale content data for improved
+            discoverability and recommendation quality
+          </li>
+          <li>
+            Analysed user interaction data to inform dynamic content recommendations and improve platform
+            engagement
+          </li>
+        </ul>
+
+        <div class="row-heading">
+          <span class="row-date"><time datetime="2022-05">May 2022</time> - <time datetime="2022-08">Aug 2022</time></span>
+        </div>
+      </div>
+
+      <!-- CMU Campus Job -->
+      <div class="card collection-card" id="cmu-office-assistant">
+        <h2>Carnegie Mellon University — Administrative Office Assistant</h2>
+        <div class="muted">Information Networking Institute</div>
+
+        <ul>
+          <li>
+            Supported coordination of graduate-level courses and seminars, ensuring smooth scheduling and
+            academic operations
+          </li>
+          <li>
+            Served as a primary point of contact for students and faculty, handling inquiries with accuracy and
+            professionalism
+          </li>
+        </ul>
+
+        <div class="row-heading">
+          <span class="row-date"><time datetime="2021-09">Sep 2021</time> - <time datetime="2023-05">May 2023</time></span>
+        </div>
+      </div>
+    </section>
+    </main>
+
+    <footer class="muted section">© <span id="y"></span> Shakthi Angou</footer>
+
+    <!-- =========================================================
+      SCRIPTS
+    ========================================================== -->
+    <script>
+      // Auto-update footer year
+      document.getElementById("y").textContent = new Date().getFullYear();
+    </script>
+
+  </body>
+</html>

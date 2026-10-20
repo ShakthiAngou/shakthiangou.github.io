@@ -64,7 +64,7 @@
         z-index: 100;
         display: flex;
         align-items: center;
-        gap: 42px;
+        gap: 64px;
         padding: 12px 18px;
         transform: translateX(-50%);
         border: 1px solid var(--brown);
@@ -158,6 +158,9 @@
         margin: 0;
       }
 
+      [id] { scroll-margin-top: 180px; }
+      .post-card:target { outline: 3px solid var(--brown); outline-offset: 4px; }
+
       .post-card {
         display: block;
         color: inherit;
@@ -211,7 +214,7 @@
         color: var(--text-muted);
       }
 
-      @media (max-width: 700px) {
+      @media (max-width: 900px) {
         body {
           padding-top: 150px;
         }
@@ -220,7 +223,7 @@
           width: calc(100% - 36px);
           flex-wrap: wrap;
           justify-content: center;
-          gap: 8px 24px;
+          gap: 12px 40px;
           border-radius: 20px;
         }
 
@@ -241,9 +244,9 @@
     <header class="topbar">
       <a class="brand" href="index.html">shakthi angou</a>
       <nav aria-label="Blog navigation">
-        <a href="index.html#interests">Interests</a>
-        <a href="index.html#projects">Projects</a>
-        <a href="index.html#experience">Experience</a>
+        <a href="projects.html">Projects</a>
+        <a href="experience.html">Experiences</a>
+        <a href="certifications.html">Certifications</a>
         <a href="index.html#contact">Contact</a>
       </nav>
     </header>
@@ -267,7 +270,7 @@
 
       <section>
         <h2>Latest Posts</h2>
-        <a class="card post-card" href="posts/veganism-and-supplementation.html">
+        <a id="veganism-and-supplementation" class="card post-card" href="posts/veganism-and-supplementation.html">
           <h3>Veganism and Supplementation</h3>
           <p class="muted">How I changed my mind on vitamin supplementation as a vegan.</p>
           <div class="post-meta">

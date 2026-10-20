@@ -1,0 +1,420 @@
+      @font-face {
+        font-family: "GT Standard L";
+        src: url("https://framerusercontent.com/assets/cD3PlB0qn71m4YssUzzkDBThmPA.woff2") format("woff2");
+        font-style: normal;
+        font-weight: 300;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "Formular Mono";
+        src: url("https://framerusercontent.com/assets/7ECgiP6io6VC8o5You8qUa6tJWQ.woff2") format("woff2");
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+      }
+
+      /* -------------------------
+        Theme variables
+      -------------------------- */
+      :root {
+        --page-gutter: 18px;
+        --paper: #dfecd9;
+        --card-bg: #faf9f5;
+        --card-border: #75534f;
+        --text-main: #303030;
+        --text-muted: #505050;
+        --accent: #303030;
+      }
+
+      /* -------------------------
+        Base layout / typography
+      -------------------------- */
+      body {
+        font-family: "GT Standard L", "Helvetica Neue", Arial, sans-serif;
+        font-weight: 300;
+        margin: 0;
+        padding: 110px var(--page-gutter) 64px;
+        line-height: 1.55;
+        color: var(--text-main);
+
+        background: var(--paper);
+      }
+
+      /* Shared container for ALL sections */
+      .section {
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      /* -------------------------
+        Links / headings
+      -------------------------- */
+      a {
+        color: var(--accent);
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      nav a {
+        margin-right: 14px;
+        text-decoration: none;
+        color: var(--text-muted);
+      }
+
+      nav a:hover {
+        color: var(--accent);
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 2.1rem;
+      }
+
+      h2 {
+        color: #75534f;
+        margin: 36px 0 14px;
+        font-family: "Formular Mono", "Courier New", monospace;
+        font-weight: 400;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+      }
+
+      .section > h2 + .card,
+      .section > h2 + .interests-grid > .card {
+        margin-top: 0;
+      }
+
+      .muted {
+        color: var(--text-muted);
+      }
+
+      /* -------------------------
+        Card + small UI elements
+      -------------------------- */
+      .card {
+        background: var(--card-bg);
+        border: 2px solid var(--card-border);
+        border-radius: 16px;
+        padding: 18px;
+        margin: 14px 0;
+        backdrop-filter: blur(6px);
+      }
+
+      .card strong,
+      .card .school {
+        color: var(--card-border);
+        font-weight: 800;
+      }
+
+      .pill {
+        display: inline-block;
+        border: 1px solid var(--card-border);
+        border-radius: 999px;
+        padding: 4px 10px;
+        margin: 6px 6px 0 0;
+        font-size: 0.9rem;
+        color: var(--text-muted);
+      }
+
+      a.pill {
+        text-decoration: none;
+        max-width: 100%;
+        box-sizing: border-box;
+        overflow-wrap: anywhere;
+      }
+
+      a.pill:hover,
+      a.pill:focus-visible {
+        background: var(--paper);
+        color: var(--text-main);
+        text-decoration: underline;
+      }
+
+      .link-row {
+        margin-top: 16px;
+        overflow-wrap: anywhere;
+      }
+
+      .contact-card .link-row {
+        margin-top: 10px;
+      }
+
+      footer {
+        margin-top: 56px;
+        padding-top: 18px;
+        border-top: 1px solid var(--card-border);
+        color: var(--text-muted);
+      }
+
+      /* -------------------------
+        Topbar (floating)
+      -------------------------- */
+      .topbar {
+        position: fixed;
+        top: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        display: inline-flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 56px;
+
+        padding: 12px 18px;
+
+        border-radius: 999px;
+        border: 1px solid #75534f;
+
+        background: #75534f;
+        color: var(--paper);
+
+        box-shadow: 0 8px 24px rgba(65, 43, 40, 0.18), 0 0 18px rgba(117, 83, 79, 0.16);
+
+        z-index: 100;
+      }
+
+      @media (max-width: 900px) {
+        .topbar {
+          box-sizing: border-box;
+          width: calc(100% - var(--page-gutter) - var(--page-gutter));
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 8px 24px;
+          border-radius: 20px;
+        }
+
+        .topbar nav {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 6px 14px;
+        }
+
+        .topbar nav a {
+          margin-right: 0;
+        }
+      }
+
+      @media (max-width: 600px) {
+        body {
+          padding-top: 180px;
+        }
+
+        #home .card {
+          padding: 24px 18px;
+        }
+
+        .section h2 {
+          font-size: clamp(1rem, 4vw, 1.5rem);
+          overflow-wrap: anywhere;
+        }
+      }
+
+      .topbar .brand,
+      .topbar nav a {
+        color: var(--paper);
+      }
+
+      .topbar a:hover,
+      .topbar a:focus-visible {
+        color: #ffffff;
+        text-decoration: underline;
+      }
+
+      .brand {
+        font-family: "Space Mono", "Courier New", monospace;
+        font-weight: 400;
+        letter-spacing: 0.2px;
+        color: #75534f;
+        text-decoration: none;
+      }
+
+      /* -------------------------
+        Home / Hero
+      -------------------------- */
+      #home {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+        padding: 24px 0;
+      }
+
+      .hero h1 {
+        color: #75534f;
+        margin: 0 0 18px;
+        text-align: center;
+        font-size: clamp(2rem, 7vw, 4.5rem);
+        line-height: 1.2;
+        font-family: "Space Mono", "Courier New", monospace;
+        font-weight: 400;
+      }
+
+      .hero .subtitle {
+        margin-top: 6px;
+        margin-bottom: 20px;
+        font-size: 1.3rem;
+        max-width: 45ch;
+      }
+
+      #home .card {
+        padding: 40px 40px;
+      }
+
+      #home p {
+        font-size: 1.05rem;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: justify;
+        hyphens: auto;
+      }
+
+      /* -------------------------
+        Education rows (in hero)
+      -------------------------- */
+      .edu {
+        margin-top: 14px;
+        display: grid;
+        gap: 10px;
+      }
+
+      .edu .row {
+        padding: 12px 14px;
+        border: 1px solid var(--card-border);
+        border-radius: 14px;
+        background: var(--paper);
+      }
+
+      .row-heading {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 4px 16px;
+      }
+
+      .row-heading > time,
+      .row-heading .row-date {
+        margin-left: auto;
+        white-space: nowrap;
+        color: var(--text-muted);
+        font-size: 0.95rem;
+      }
+
+      .school {
+        font-weight: 700;
+        color: var(--text-main);
+        text-decoration: none;
+      }
+
+      .school:hover {
+        color: var(--accent);
+        text-decoration: underline;
+      }
+
+      .edu .details {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        margin-top: 2px;
+      }
+
+      /* -------------------------
+        CTA Buttons
+      -------------------------- */
+      .cta {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 14px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 10px 14px;
+        border-radius: 12px;
+        border: 1px solid var(--card-border);
+        text-decoration: none;
+        color: var(--text-main);
+        background: var(--paper);
+      }
+
+      .btn:hover {
+        border-color: var(--card-border);
+      }
+
+      /* -------------------------
+        Interests section (3 squares)
+      -------------------------- */
+      .interests-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+      }
+
+      .passion-card {
+        aspect-ratio: 1 / 1;
+        max-width: 260px;
+        padding: 24px;
+
+        display: flex;
+        flex-direction: column;
+      }
+
+      .passion-card strong {
+        font-size: 1.25rem;
+        margin-top: 30px;
+      }
+
+      .passion-card .muted {
+        font-size: 0.95rem;
+        line-height: 1.45;
+        margin-top: 10px;
+      }
+
+      @media (max-width: 860px) {
+        .interests-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .passion-card {
+          aspect-ratio: auto;
+        }
+      }
+
+
+      [id] { scroll-margin-top: 160px; }
+      .topbar { width: max-content; max-width: calc(100% - 36px); gap: 64px; }
+      .topbar nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 14px; }
+      .topbar nav a { margin: 0; }
+      .brand { white-space: nowrap; }
+      .highlights-panel { padding: 32px; }
+      .highlights-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
+      .highlight-card { display: flex; flex-direction: column; padding: 18px; border: 1px solid var(--card-border); border-radius: 12px; background: var(--paper); text-decoration: none; }
+      .highlight-card:hover { background: #fff; text-decoration: none; }
+      .highlight-card:focus-visible { outline: 3px solid var(--card-border); outline-offset: 4px; }
+      .highlight-card h3 { margin: 10px 0 6px; color: var(--card-border); font-size: 1.1rem; }
+      .highlight-card p { margin: 0 0 14px; color: var(--text-muted); font-size: .95rem; }
+      .highlight-category { font-family: "Formular Mono", monospace; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; color: var(--card-border); }
+      .highlight-link { margin-top: auto; text-decoration: underline; font-size: .9rem; }
+      .collection-hero { padding: 58px 0 26px; }
+      .collection-hero h1 { margin: 0; color: var(--card-border); font-family: "Space Mono", "Courier New", monospace; font-weight: 400; font-size: clamp(2.8rem, 8vw, 5rem); line-height: 1.1; overflow-wrap: anywhere; }
+      .collection-hero p { margin: 22px 0 0; color: var(--text-muted); max-width: 65ch; font-size: 1.15rem; }
+      .collection-hero .eyebrow { margin: 0 0 14px; color: var(--card-border); font-family: "Formular Mono", "Courier New", monospace; font-size: .9rem; font-weight: 400; letter-spacing: .15em; text-transform: uppercase; }
+      .collection-card:target { outline: 3px solid var(--card-border); outline-offset: 4px; }
+      .section > .card > h2 { margin: 0; font-family: inherit; font-size: 1rem; letter-spacing: normal; text-transform: none; font-weight: 800; }
+      footer.section { margin-top: 56px; }
+      @media (max-width: 900px) {
+        .topbar { width: calc(100% - 36px); gap: 12px 40px; }
+        .collection-hero { padding-top: 24px; }
+      }
+      @media (max-width: 600px) {
+        .highlights-panel { padding: 22px; }
+        .highlights-grid { grid-template-columns: 1fr; gap: 24px; }
+        #home .card { padding: 24px 18px; }
+        #home p { text-align: left; }
+        .passion-card { max-width: none; }
+        [id] { scroll-margin-top: 190px; }
+      }

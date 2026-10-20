@@ -19,395 +19,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400&display=swap" rel="stylesheet" />
-    <style>
-      @font-face {
-        font-family: "GT Standard L";
-        src: url("https://framerusercontent.com/assets/cD3PlB0qn71m4YssUzzkDBThmPA.woff2") format("woff2");
-        font-style: normal;
-        font-weight: 300;
-        font-display: swap;
-      }
-
-      @font-face {
-        font-family: "Formular Mono";
-        src: url("https://framerusercontent.com/assets/7ECgiP6io6VC8o5You8qUa6tJWQ.woff2") format("woff2");
-        font-style: normal;
-        font-weight: 400;
-        font-display: swap;
-      }
-
-      /* -------------------------
-        Theme variables
-      -------------------------- */
-      :root {
-        --page-gutter: 18px;
-        --paper: #dfecd9;
-        --card-bg: #faf9f5;
-        --card-border: #75534f;
-        --text-main: #303030;
-        --text-muted: #505050;
-        --accent: #303030;
-      }
-
-      /* -------------------------
-        Base layout / typography
-      -------------------------- */
-      body {
-        font-family: "GT Standard L", "Helvetica Neue", Arial, sans-serif;
-        font-weight: 300;
-        margin: 0;
-        padding: 110px var(--page-gutter) 64px;
-        line-height: 1.55;
-        color: var(--text-main);
-
-        background: var(--paper);
-      }
-
-      /* Shared container for ALL sections */
-      .section {
-        width: 100%;
-        max-width: 900px;
-        margin: 0 auto;
-      }
-
-      /* -------------------------
-        Links / headings
-      -------------------------- */
-      a {
-        color: var(--accent);
-      }
-
-      a:hover {
-        text-decoration: underline;
-      }
-
-      nav a {
-        margin-right: 14px;
-        text-decoration: none;
-        color: var(--text-muted);
-      }
-
-      nav a:hover {
-        color: var(--accent);
-      }
-
-      h1 {
-        margin: 0;
-        font-size: 2.1rem;
-      }
-
-      h2 {
-        color: #75534f;
-        margin: 36px 0 14px;
-        font-family: "Formular Mono", "Courier New", monospace;
-        font-weight: 400;
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
-      }
-
-      .section > h2 + .card,
-      .section > h2 + .interests-grid > .card {
-        margin-top: 0;
-      }
-
-      .muted {
-        color: var(--text-muted);
-      }
-
-      /* -------------------------
-        Card + small UI elements
-      -------------------------- */
-      .card {
-        background: var(--card-bg);
-        border: 2px solid var(--card-border);
-        border-radius: 16px;
-        padding: 18px;
-        margin: 14px 0;
-        backdrop-filter: blur(6px);
-      }
-
-      .card strong,
-      .card .school {
-        color: var(--card-border);
-        font-weight: 800;
-      }
-
-      .pill {
-        display: inline-block;
-        border: 1px solid var(--card-border);
-        border-radius: 999px;
-        padding: 4px 10px;
-        margin: 6px 6px 0 0;
-        font-size: 0.9rem;
-        color: var(--text-muted);
-      }
-
-      a.pill {
-        text-decoration: none;
-        max-width: 100%;
-        box-sizing: border-box;
-        overflow-wrap: anywhere;
-      }
-
-      a.pill:hover,
-      a.pill:focus-visible {
-        background: var(--paper);
-        color: var(--text-main);
-        text-decoration: underline;
-      }
-
-      .link-row {
-        margin-top: 16px;
-        overflow-wrap: anywhere;
-      }
-
-      .contact-card .link-row {
-        margin-top: 10px;
-      }
-
-      footer {
-        margin-top: 56px;
-        padding-top: 18px;
-        border-top: 1px solid var(--card-border);
-        color: var(--text-muted);
-      }
-
-      /* -------------------------
-        Topbar (floating)
-      -------------------------- */
-      .topbar {
-        position: fixed;
-        top: 24px;
-        left: 50%;
-        transform: translateX(-50%);
-
-        display: inline-flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 56px;
-
-        padding: 12px 18px;
-
-        border-radius: 999px;
-        border: 1px solid #75534f;
-
-        background: #75534f;
-        color: var(--paper);
-
-        box-shadow: 0 8px 24px rgba(65, 43, 40, 0.18), 0 0 18px rgba(117, 83, 79, 0.16);
-
-        z-index: 100;
-      }
-
-      @media (max-width: 900px) {
-        .topbar {
-          box-sizing: border-box;
-          width: calc(100% - var(--page-gutter) - var(--page-gutter));
-          flex-wrap: wrap;
-          justify-content: center;
-          gap: 8px 24px;
-          border-radius: 20px;
-        }
-
-        .topbar nav {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-          gap: 6px 14px;
-        }
-
-        .topbar nav a {
-          margin-right: 0;
-        }
-      }
-
-      @media (max-width: 600px) {
-        body {
-          padding-top: 180px;
-        }
-
-        #home .card {
-          padding: 24px 18px;
-        }
-
-        .section h2 {
-          font-size: clamp(1rem, 4vw, 1.5rem);
-          overflow-wrap: anywhere;
-        }
-      }
-
-      .topbar .brand,
-      .topbar nav a {
-        color: var(--paper);
-      }
-
-      .topbar a:hover,
-      .topbar a:focus-visible {
-        color: #ffffff;
-        text-decoration: underline;
-      }
-
-      .brand {
-        font-family: "Space Mono", "Courier New", monospace;
-        font-weight: 400;
-        letter-spacing: 0.2px;
-        color: #75534f;
-        text-decoration: none;
-      }
-
-      /* -------------------------
-        Home / Hero
-      -------------------------- */
-      #home {
-        min-height: calc(100vh - 110px);
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: center;
-        padding: 24px 0;
-      }
-
-      .hero h1 {
-        color: #75534f;
-        margin: 0 0 18px;
-        text-align: center;
-        font-size: clamp(2rem, 7vw, 4.5rem);
-        line-height: 1.2;
-        font-family: "Space Mono", "Courier New", monospace;
-        font-weight: 400;
-      }
-
-      .hero .subtitle {
-        margin-top: 6px;
-        margin-bottom: 20px;
-        font-size: 1.3rem;
-        max-width: 45ch;
-      }
-
-      #home .card {
-        padding: 40px 40px;
-      }
-
-      #home p {
-        font-size: 1.05rem;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: justify;
-        hyphens: auto;
-      }
-
-      /* -------------------------
-        Education rows (in hero)
-      -------------------------- */
-      .edu {
-        margin-top: 14px;
-        display: grid;
-        gap: 10px;
-      }
-
-      .edu .row {
-        padding: 12px 14px;
-        border: 1px solid var(--card-border);
-        border-radius: 14px;
-        background: var(--paper);
-      }
-
-      .row-heading {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: baseline;
-        gap: 4px 16px;
-      }
-
-      .row-heading > time,
-      .row-heading .row-date {
-        margin-left: auto;
-        white-space: nowrap;
-        color: var(--text-muted);
-        font-size: 0.95rem;
-      }
-
-      .school {
-        font-weight: 700;
-        color: var(--text-main);
-        text-decoration: none;
-      }
-
-      .school:hover {
-        color: var(--accent);
-        text-decoration: underline;
-      }
-
-      .edu .details {
-        color: var(--text-muted);
-        font-size: 0.95rem;
-        margin-top: 2px;
-      }
-
-      /* -------------------------
-        CTA Buttons
-      -------------------------- */
-      .cta {
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-        margin-top: 14px;
-      }
-
-      .btn {
-        display: inline-block;
-        padding: 10px 14px;
-        border-radius: 12px;
-        border: 1px solid var(--card-border);
-        text-decoration: none;
-        color: var(--text-main);
-        background: var(--paper);
-      }
-
-      .btn:hover {
-        border-color: var(--card-border);
-      }
-
-      /* -------------------------
-        Interests section (3 squares)
-      -------------------------- */
-      .interests-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 20px;
-      }
-
-      .passion-card {
-        aspect-ratio: 1 / 1;
-        max-width: 260px;
-        padding: 24px;
-
-        display: flex;
-        flex-direction: column;
-      }
-
-      .passion-card strong {
-        font-size: 1.25rem;
-        margin-top: 30px;
-      }
-
-      .passion-card .muted {
-        font-size: 0.95rem;
-        line-height: 1.45;
-        margin-top: 10px;
-      }
-
-      @media (max-width: 860px) {
-        .interests-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .passion-card {
-          aspect-ratio: auto;
-        }
-      }
-
-    </style>
+    <link rel="stylesheet" href="assets/css/portfolio.css" />
   </head>
 
   <body>
@@ -415,21 +27,20 @@
       TOP NAV
     ========================================================== -->
     <header class="topbar">
-      <a class="brand" href="#home">shakthi angou</a>
-
-      <nav>
-        <a href="#interests">Interests</a>
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#certifications">Certifications</a>
+      <a class="brand" href="index.html">shakthi angou</a>
+      <nav aria-label="Main navigation">
+        <a href="projects.html">Projects</a>
+        <a href="experience.html">Experiences</a>
+        <a href="certifications.html">Certifications</a>
         <a href="blog.html">Blog</a>
-        <a href="#contact">Contact</a>
+        <a href="index.html#contact">Contact</a>
       </nav>
     </header>
 
     <!-- =========================================================
       HOME / HERO
     ========================================================== -->
+    <main>
     <section id="home" class="section hero">
       <h1>shakthi angou</h1>
       <div class="card">
@@ -474,7 +85,7 @@
 
         <!-- CTA -->
         <div class="cta">
-          <a class="btn" href="#experience">View Experience</a>
+          <a class="btn" href="experience.html">View Experience</a>
           <a class="btn" href="#contact">Contact</a>
         </div>
 
@@ -485,6 +96,38 @@
           <span class="pill">Distributed Systems</span>
           <span class="pill">ROS (learning)</span>
           <span class="pill">SLAM (learning)</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="highlights">
+      <h2 id="highlights">Highlights</h2>
+      <div class="card highlights-panel">
+        <div class="highlights-grid">
+          <a class="highlight-card" href="projects.html#ems">
+            <span class="highlight-category">Projects</span>
+            <h3>Microgrid Energy Management System</h3>
+            <p>Simulating solar generation and energy storage for decentralised microgrids.</p>
+            <span class="highlight-link">View project &rarr;</span>
+          </a>
+          <a class="highlight-card" href="experience.html#hpe-systems-software-engineer">
+            <span class="highlight-category">Experiences</span>
+            <h3>Systems Software Engineer at HPE</h3>
+            <p>Building distributed object and file storage systems with C++.</p>
+            <span class="highlight-link">View experience &rarr;</span>
+          </a>
+          <a class="highlight-card" href="certifications.html#embedded-systems">
+            <span class="highlight-category">Certifications</span>
+            <h3>Introduction to Embedded Systems</h3>
+            <p>Embedded systems fundamentals, C programming, and workflows for building and debugging firmware.</p>
+            <span class="highlight-link">View certification &rarr;</span>
+          </a>
+          <a class="highlight-card" href="blog.html#veganism-and-supplementation">
+            <span class="highlight-category">Blog</span>
+            <h3>Veganism and Supplementation</h3>
+            <p>How I changed my mind on vitamin supplementation as a vegan.</p>
+            <span class="highlight-link">View blog post &rarr;</span>
+          </a>
         </div>
       </div>
     </section>
@@ -521,250 +164,12 @@
       </div>
     </section>
 
-    <!-- =========================================================
-      PROJECTS
-    ========================================================== -->
-    <section class="section">
-      <h2 id="projects">Projects</h2>
-
-      <!-- Project 1: EMS -->
-      <div class="card">
-        <strong>Microgrid Energy Management System (EMS)</strong>
-        <div class="muted">
-          Long-term goal: develop an intelligent energy management system for decentralised microgrids in
-          rural India, supporting reliable access to renewable energy.
-        </div>
-        <ul>
-          <li>
-            Built a modular microgrid Energy Management System (EMS) simulation for solar generation, load
-            demand, supercapacitor storage, and hydrogen storage.
-          </li>
-          <li>
-            Implemented rule-based dispatch logic that prioritises short-duration storage before hydrogen
-            conversion and tracks system energy flows over 24-hour scenarios.
-          </li>
-          <li>
-            Developed a Matplotlib dashboard for storage state of charge, hydrogen inventory, generation,
-            demand, and post-storage energy balance, establishing a foundation for forecast-aware MPC.
-          </li>
-          <li>
-            Future versions will work towards hardware-in-the-loop testing and ML-based predictive state
-            estimation to support more adaptive energy management.
-          </li>
-        </ul>
-
-        <div class="row-heading">
-          <div>
-            <a class="pill" href="ems.html">Project Page</a>
-            <a class="pill" href="https://github.com/ShakthiAngou/MicrogridController" target="_blank" rel="noopener">GitHub Repository</a>
-          </div>
-          <time datetime="2026-05">May 2026</time>
-        </div>
-      </div>
-
-      <!-- Project 2: SightMate -->
-      <div class="card">
-        <strong>SightMate: Automated Navigation System</strong>
-
-        <div class="muted">
-          Wearable assistive navigation system for visually-impaired users, combining real-time obstacle
-          detection with spatial audio feedback for safe, hands-free mobility.
-        </div>
-
-        <ul>
-          <li>
-            Built a multi-sensor perception stack (ultrasonic + IMU) on NVIDIA Jetson for low-latency obstacle
-            detection and distance estimation
-          </li>
-          <li>
-            Designed audio-based guidance logic to convey direction and proximity without overwhelming the user
-          </li>
-        </ul>
-
-        <div class="row-heading">
-          <div>
-            <a class="pill" href="sightmate.html">Project Page</a>
-            <a class="pill" href="assets/documents/SightMate_Presentation.pdf" target="_blank" rel="noopener">Presentation</a>
-            <a class="pill" href="assets/documents/SightMate_Report.pdf" target="_blank" rel="noopener">Report</a>
-          </div>
-          <time datetime="2024-05">May 2024</time>
-        </div>
-      </div>
-
-      <!-- Project 3: Fractal Tree -->
-      <div class="card">
-        <strong>Fractal Tree Based Metadata Indexing for Object Storage</strong>
-
-        <div class="muted">
-          Designed and implemented an in-memory fractal tree–based metadata index to reduce lookup overhead
-          and improve partial read performance in a production S3-compatible object storage system.
-        </div>
-
-        <ul>
-          <li>
-            Implemented a fractal tree data structure to aggregate and organise object metadata in memory,
-            reducing repeated traversal during read operations
-          </li>
-          <li>
-            Analysed performance trade-offs against existing indexing approaches and proposed a hybrid strategy
-            for future production integration
-          </li>
-          <li>Project recognised for technical excellence and impact, resulting in a full-time return offer.</li>
-        </ul>
-
-        <div class="row-heading">
-          <time datetime="2023-08">Aug 2023</time>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- =========================================================
+<!-- =========================================================
       EXPERIENCE
     ========================================================== -->
-    <section class="section">
-      <h2 id="experience">Experience</h2>
 
-      <!-- HPE Full-Time -->
-      <div class="card">
-        <strong>Hewlett Packard Enterprise — Systems Software Engineer</strong>
-        <div class="muted">Object &amp; File Storage • C++ • Distributed Systems</div>
 
-        <ul>
-          <li>
-            Developed Namespace Index and File Index features for HPE's distributed, S3-compatible object and
-            file storage platforms.
-          </li>
-          <li>
-            Implemented end-to-end object locking and versioning, enforcing retention and access controls
-            through metadata and authorisation workflows.
-          </li>
-          <li>
-            Added Grafana-integrated metrics and in-memory counters to monitor file-storage health and performance.
-          </li>
-          <li>
-            Built state-inspection and diagnostic tools in a gRPC debugging framework to accelerate root-cause analysis.
-          </li>
-          <li>
-            Used Kubernetes-based storage simulations to reproduce failures, validate fixes, and test features
-            before deployment.
-          </li>
-        </ul>
-
-        <div class="row-heading">
-          <span class="row-date"><time datetime="2024-07">July 2024</time> - Present</span>
-        </div>
-      </div>
-
-      <!-- HPE Internship -->
-      <div class="card">
-        <strong>Hewlett Packard Enterprise — Software Engineering Intern</strong>
-        <div class="muted">Object Storage • C++ • Performance Engineering</div>
-
-        <ul>
-          <li>
-            Designed and implemented a fractal tree–based in-memory metadata index to reduce lookup overhead
-            and accelerate partial object reads
-          </li>
-          <li>
-            Conducted performance analysis against existing indexing approaches and proposed a hybrid strategy
-            for production integration
-          </li>
-          <li>Project recognised for technical excellence and impact, resulting in a full-time return offer</li>
-        </ul>
-
-        <div class="row-heading">
-          <span class="row-date"><time datetime="2023-05">May 2023</time> - <time datetime="2023-08">Aug 2023</time></span>
-        </div>
-      </div>
-
-      <!-- Blackbuck -->
-      <div class="card">
-        <strong>Blackbuck Insights — Data Engineering Intern</strong>
-        <div class="muted">Data Modelling • UX • Analytics</div>
-
-        <ul>
-          <li>
-            Proposed tagging and taxonomy models to structure large-scale content data for improved
-            discoverability and recommendation quality
-          </li>
-          <li>
-            Analysed user interaction data to inform dynamic content recommendations and improve platform
-            engagement
-          </li>
-        </ul>
-
-        <div class="row-heading">
-          <span class="row-date"><time datetime="2022-05">May 2022</time> - <time datetime="2022-08">Aug 2022</time></span>
-        </div>
-      </div>
-
-      <!-- CMU Campus Job -->
-      <div class="card">
-        <strong>Carnegie Mellon University — Administrative Office Assistant</strong>
-        <div class="muted">Information Networking Institute</div>
-
-        <ul>
-          <li>
-            Supported coordination of graduate-level courses and seminars, ensuring smooth scheduling and
-            academic operations
-          </li>
-          <li>
-            Served as a primary point of contact for students and faculty, handling inquiries with accuracy and
-            professionalism
-          </li>
-        </ul>
-
-        <div class="row-heading">
-          <span class="row-date"><time datetime="2021-09">Sep 2021</time> - <time datetime="2023-05">May 2023</time></span>
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================================================
-      COURSES & CERTIFICATIONS
-      Each course includes a Certificate link (or placeholder until available).
-      Learnings and Technical Notes are optional, independent resources.
-    ========================================================== -->
-    <section class="section">
-      <h2 id="certifications">Courses &amp; Certifications</h2>
-
-      <div class="card">
-        <strong>Green Software Practitioner</strong>
-
-        <div class="muted">
-          Certified in sustainable software principles, with a focus on reducing the environmental impact of
-          software systems through energy and carbon efficiency.
-        </div>
-
-        <div class="row-heading" style="margin-top: 16px;">
-          <div>
-            <a class="pill" href="assets/documents/1_2026_Green_Software_Practitioner.pdf" target="_blank" rel="noopener">Certificate</a>
-            <a class="pill" href="assets/documents/1_2026_Green_Software_Practitioner_KL.pdf" target="_blank" rel="noopener">Technical Notes</a>
-          </div>
-          <time datetime="2026-09">Sep 2026</time>
-        </div>
-      </div>
-
-      <div class="card">
-        <strong>Introduction to Embedded Systems and Development Environments</strong>
-
-        <div class="muted">
-          An introduction to embedded systems fundamentals, C programming, and development workflows for building and debugging firmware.
-        </div>
-
-        <div class="row-heading" style="margin-top: 16px;">
-          <div>
-            <span class="pill" aria-label="Certificate coming soon">Certificate</span>
-            <a class="pill" href="embedded-systems.html">Learnings</a>
-            <span class="pill" aria-label="Technical Notes coming soon" title="Technical Notes coming soon">Technical Notes</span>
-          </div>
-          <time datetime="2026-10">Oct 2026</time>
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================================================
+<!-- =========================================================
       CONTACT
     ========================================================== -->
     <section class="section">
@@ -780,6 +185,8 @@
         </div>
       </div>
     </section>
+
+    </main>
 
     <!-- =========================================================
       FOOTER
