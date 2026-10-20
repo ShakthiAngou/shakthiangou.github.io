@@ -257,8 +257,9 @@
       .hero .subtitle {
         margin-top: 6px;
         margin-bottom: 20px;
-        font-size: 1.3rem;
-        max-width: 45ch;
+        font-size: clamp(1rem, 1.8vw, 1.2rem);
+        max-width: none;
+        white-space: nowrap;
       }
 
       #home .card {
@@ -409,6 +410,7 @@
       @media (max-width: 900px) {
         .topbar { width: calc(100% - 36px); gap: 12px 40px; }
         .collection-hero { padding-top: 24px; }
+        .hero .subtitle { white-space: normal; }
       }
       @media (max-width: 600px) {
         .highlights-panel { padding: 22px; }
